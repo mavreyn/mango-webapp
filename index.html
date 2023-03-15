@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Literally my first web project aside from what I did in Ms. Rennie's class -->
+<!-- Want to make a KaTeX renderer -->
+
+<html>
+
+  <head>
+    <title>KaTeX Fun</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="/main.js"></script>
+  </head>
+
+  <body class="body">
+
+    <div class="left-column">
+      <textarea id="user-text" onkeyup="updateDisp(); updateCursorLoc();"></textarea>
+    </div>
+
+    <div class="right-column">
+      <div class="text-pad">
+        Cursor Location:
+        <span id="cursor-loc"> </span>
+        <p id="display-text"></p>
+      </div>
+    </div>
+
+  </body>
+
+</html>

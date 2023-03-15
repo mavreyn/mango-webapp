@@ -1,0 +1,25 @@
+.body {
+   margin: 0px;
+}
+
+.left-column {
+    float: left;
+    width: 50%;
+}
+
+.right-column {
+    float: right;
+    width: 50%;
+    background-color: #eee;
+    height: 100vh;
+}
+
+#user-text {
+    margin: 10px;
+    width: 45vw;
+    height: 95vh;
+}
+
+.text-pad {
+    margin: 10px;
+}

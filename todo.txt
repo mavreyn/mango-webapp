@@ -1,0 +1,12 @@
+03.15.2023
+Lookin pretty sweet
+
+GitRepo ASAP! (today)
+
+resizeability
+each line in new <p>
+# header sizes (ln under)
+sans serif font family both
+KaTeX (The name of the game!)
+- maybe split on $$ first then $ then \n ?
+tab stay in box?
