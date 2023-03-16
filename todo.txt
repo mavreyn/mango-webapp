@@ -1,12 +1,23 @@
 03.15.2023
 Lookin pretty sweet
 
-GitRepo ASAP! (today)
 
-resizeability
-each line in new <p>
-# header sizes (ln under)
+KaTeX
+GitRepo ASAP
 sans serif font family both
-KaTeX (The name of the game!)
+markdown renderer
+prev resize
+
+resizeability of entire window
+line under header
 - maybe split on $$ first then $ then \n ?
 tab stay in box?
+Scroll Sync
+KaTeX Element possible
+colors
+topbar
+
+Vision::
+NIce borders and all
+Debug pannel
+Trigger addition panel

@@ -1,13 +1,16 @@
-.body {
+#body {
    margin: 0px;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.left-column {
+#left-column {
     float: left;
     width: 50%;
+    height: 100vh;
+    background-color: #dbf2ff;
 }
 
-.right-column {
+#right-column {
     float: right;
     width: 50%;
     background-color: #eee;
@@ -15,11 +18,16 @@
 }
 
 #user-text {
-    margin: 10px;
     width: 45vw;
-    height: 95vh;
+    height: 75vh;
+    resize: none;
 }
 
-.text-pad {
-    margin: 10px;
+#lwrapper {
+    text-align: center;
+    margin: 10px
+}
+
+#rwrapper {
+    padding: 10px;
 }
