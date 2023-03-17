@@ -1,23 +1,27 @@
 03.15.2023
 Lookin pretty sweet
 
-
 KaTeX
 GitRepo ASAP
 sans serif font family both
 markdown renderer
 prev resize
 
+
 resizeability of entire window
 line under header
 - maybe split on $$ first then $ then \n ?
 tab stay in box?
 Scroll Sync
+settings / info wheel
+feedback box
 KaTeX Element possible
 colors
-topbar
+
 
 Vision::
 NIce borders and all
 Debug pannel
 Trigger addition panel
+
+dbf2ff

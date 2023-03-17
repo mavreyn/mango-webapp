@@ -7,7 +7,7 @@
     float: left;
     width: 50%;
     height: 100vh;
-    background-color: #dbf2ff;
+    background-color: #555
 }
 
 #right-column {
@@ -17,17 +17,40 @@
     height: 100vh;
 }
 
+#user-text-wrapper {
+    text-align: center;
+}
+
 #user-text {
     width: 45vw;
     height: 75vh;
     resize: none;
+    margin: 0px;
+    border-width: 2px;
+    border-color: black;
+    background-color: black;
+    color: white;
 }
 
+
 #lwrapper {
-    text-align: center;
-    margin: 10px
+    margin: 10px;
+    color: #fff;
 }
 
 #rwrapper {
     padding: 10px;
+}
+
+.topbar {
+    width: 100vw;
+    height: 30px;
+    background-color: #000;
+}
+
+#title {
+    color: white;
+    margin: 0px auto;
+    text-align: center;
+    padding: 2px;
 }

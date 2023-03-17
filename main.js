@@ -12,7 +12,9 @@ const options = {
     throwOnError: false
 }
 
-var userText = document.getElementById("user-text");
+window.f = 3;
+
+const userText = document.getElementById("user-text");
 const mainDisp = document.getElementById("main-display");
 
 function mainUpdate() {
@@ -20,6 +22,8 @@ function mainUpdate() {
     updateDisplay();
     updateKaTeX();
 }
+
+
 
 //updates the main display using showdown
 function updateDisplay() {
