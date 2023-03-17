@@ -1,0 +1,14 @@
+# Heading here
+this is just a test
+$$
+y=x^2
+$$
+More stuff right here
+and another here
+$$
+x=3
+$$
+yea
+$$
+should be good tho
+$

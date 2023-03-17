@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<!-- Literally my first web project aside from what I did in Ms. Rennie's class -->
-<!-- Want to make a KaTeX renderer -->
+<!-- KaTeX and Showdown renderer -->
+<!-- Want lots of customizability, ease of use, and shortcuts -->
+<!-- Ultimate goal: Use live in lectures and whenever by anyone -->
 
 <html lang="en-US">
-
   <head>
-    <title>MaTeX v0.5.7</title>
+    <title>MaTeX v0.6.0</title>
     <link rel="stylesheet" href="/main.css">
     <script src="/main.js"></script>
-
     <!-- KaTeX with Auto-render Extension -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
-
     <!-- CopyTeX to copy TeX when selected -->
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
-    
     <!-- Showdown -->
     <script src="https://cdn.rawgit.com/showdownjs/showdown/2.1.0/dist/showdown.min.js"></script>
   </head>
@@ -25,9 +22,8 @@
   <body id="body">
   <!-- Top Bar here -->
     <div class="topbar">
-      <h3 id="title">MaTeX v0.5.7</h3>
+      <h3 id="title">MaTeX v0.6.0</h3>
     </div>
-
     <!-- Left Column -->
     <div id="left-column">
       <div id="lwrapper">
@@ -39,15 +35,12 @@
         <span id="cursor-loc">0</span>
       </div>
     </div>
-    
     <!-- Right Column -->
     <div id="right-column">
       <div id="rwrapper">
         <div id="main-display"></div>
-        <div id="KaTeX Here"></div>
       </div>
     </div>
 
   </body>
-
 </html>

@@ -8,15 +8,13 @@ markdown renderer
 prev resize
 
 
-resizeability of entire window
 line under header
-- maybe split on $$ first then $ then \n ?
+regex.split to keep all /\$\$.+?\$\$/gms
 tab stay in box?
 Scroll Sync
-settings / info wheel
+settings (line under header)(debug mode)(isCursorInMath)
+Info window
 feedback box
-KaTeX Element possible
-colors
 
 
 Vision::

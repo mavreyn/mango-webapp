@@ -1,0 +1,10 @@
+# Testing for stuff
+Date: today
+
+## And another thing here
+
+Let this be true that
+$$
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+$$
+And if that is so then all is good

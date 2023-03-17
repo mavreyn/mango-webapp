@@ -3,8 +3,6 @@ Putting the js in a separate file
 03.09.2023
 */
 
-
-
 const macros = {};
 
 const options = {
@@ -12,10 +10,17 @@ const options = {
     throwOnError: false
 }
 
-window.f = 3;
+//------------------------------------//
 
-const userText = document.getElementById("user-text");
-const mainDisp = document.getElementById("main-display");
+function isEven(x) {
+    return x % 2 == 0;
+}
+
+function getUserText() {
+    return document.getElementById("user-text").value;
+}
+
+
 
 function mainUpdate() {
     updateCursorLoc();
@@ -24,13 +29,32 @@ function mainUpdate() {
 }
 
 
-
-//updates the main display using showdown
+//updates the main display using either showdown or KaTeX
 function updateDisplay() {
-    var converter = new showdown.Converter();
-    var text = document.getElementById("user-text").value;
-    var html = converter.makeHtml(text);
-    document.getElementById("main-display").innerHTML = html;
+    const mainDisp = document.getElementById("main-display");
+    mainDisp.innerHTML = '';
+    
+    //split on $$ to find block KaTeX
+    var rawUserText = getUserText();
+    var textSections = rawUserText.split("$$");
+    
+    //render each section depending on the content it contains
+    for (let i = 0; i < textSections.length; i++) {
+        const newDiv = document.createElement("div");
+        
+        if (isEven(i) || i == textSections.length - 1) {
+            //render with Showdown
+            var converter = new showdown.Converter();
+            var html = converter.makeHtml(textSections[i]);
+            newDiv.innerHTML = html;
+        } else {
+            //render with KaTeX
+            katex.render(textSections[i], newDiv, options);
+        }
+
+        mainDisp.appendChild(newDiv);
+    }
+
 }
 
 //updates the cursor location on a textarea change or click within
@@ -39,11 +63,3 @@ function updateCursorLoc() {
     document.getElementById("cursor-loc").innerText = cursorPos;
 }
 
-//updates KaTeX still in beta phase
-function updateKaTeX() {
-    var rawUserInput = document.getElementById("user-text").value;
-    var togo = document.getElementById("KaTeX Here");
-    
-    //render the KaTeX with options above
-    katex.render(rawUserInput, togo, options);
-}
