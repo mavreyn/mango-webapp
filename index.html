@@ -5,7 +5,7 @@
 
 <html lang="en-US">
   <head>
-    <title>MaTeX v0.6.0</title>
+    <title>MaTeX v0.6.1</title>
     <link rel="stylesheet" href="/main.css">
     <script src="/main.js"></script>
     <!-- KaTeX with Auto-render Extension -->
@@ -21,18 +21,15 @@
 
   <body id="body">
   <!-- Top Bar here -->
-    <div class="topbar">
-      <h3 id="title">MaTeX v0.6.0</h3>
-    </div>
-    <!-- Left Column -->
+  <div class="topbar">
+    <h3 id="title">MaTeX v0.6.1</h3>
+  </div>  
+  <!-- Left Column -->
     <div id="left-column">
       <div id="lwrapper">
-        <div id="user-text-wrapper">
+        <div id="user-text-aligner">
           <textarea id="user-text" onkeyup="mainUpdate()" onclick="updateCursorLoc()"></textarea>
         </div>
-        <h3>Debug Info:</h3>
-        <span>Cursor Location:</span>
-        <span id="cursor-loc">0</span>
       </div>
     </div>
     <!-- Right Column -->
@@ -40,6 +37,15 @@
       <div id="rwrapper">
         <div id="main-display"></div>
       </div>
+    </div>
+    
+    <div class=debug-box>
+      <p>test
+        Right HEre`
+        <h3>Debug Info:</h3>
+        <span>Cursor Location:</span>
+        <span id="cursor-loc">0</span>
+      </p>
     </div>
 
   </body>
