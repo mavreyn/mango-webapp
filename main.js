@@ -10,32 +10,27 @@ const options = {
     throwOnError: false
 }
 
-//------------------------------------//
+const mainDisp = document.getElementById("main-display");
+const userText = document.getElementById("user-text");
+
+//---------------------------------------------------------------------//
 
 function isEven(x) {
     return x % 2 == 0;
 }
 
-function getUserText() {
-    return document.getElementById("user-text").value;
-}
-
-
-
 function mainUpdate() {
-    updateCursorLoc();
+    updateCursorLocations();
     updateDisplay();
-    updateKaTeX();
 }
 
 
 //updates the main display using either showdown or KaTeX
 function updateDisplay() {
-    const mainDisp = document.getElementById("main-display");
     mainDisp.innerHTML = '';
     
     //split on $$ to find block KaTeX
-    var rawUserText = getUserText();
+    var rawUserText = userText.value;
     var textSections = rawUserText.split("$$");
     
     //render each section depending on the content it contains
@@ -58,8 +53,8 @@ function updateDisplay() {
 }
 
 //updates the cursor location on a textarea change or click within
-function updateCursorLoc() {
-    var cursorPos = document.getElementById("user-text").selectionStart;
-    document.getElementById("cursor-loc").innerText = cursorPos;
+function updateCursorLocations() {
+    document.getElementById("cursor-start").innerText = userText.selectionStart;
+    document.getElementById("cursor-end").innerText = userText.selectionEnd;
 }
 

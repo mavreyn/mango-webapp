@@ -5,9 +5,9 @@
 
 <html lang="en-US">
   <head>
-    <title>MaTeX v0.6.1</title>
+    <title>Project Dried Mango v0.7</title>
     <link rel="stylesheet" href="/main.css">
-    <script src="/main.js"></script>
+    <script defer src="/main.js"></script>
     <!-- KaTeX with Auto-render Extension -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
@@ -20,32 +20,30 @@
   </head>
 
   <body id="body">
-  <!-- Top Bar here -->
-  <div class="topbar">
-    <h3 id="title">MaTeX v0.6.1</h3>
-  </div>  
-  <!-- Left Column -->
+    <!-- Top Bar here -->
+    <div class="topbar">
+      <h3 id="title">Project Dried Mango v0.7</h3>
+    </div>  
+    <!-- Left Column -->
     <div id="left-column">
-      <div id="lwrapper">
-        <div id="user-text-aligner">
-          <textarea id="user-text" onkeyup="mainUpdate()" onclick="updateCursorLoc()"></textarea>
-        </div>
-      </div>
+      <textarea id="user-text" oninput="mainUpdate()" onclick="updateCursorLocations()" onkeyup="updateCursorLocations()"></textarea>
     </div>
     <!-- Right Column -->
     <div id="right-column">
-      <div id="rwrapper">
-        <div id="main-display"></div>
-      </div>
+      <div id="main-display"></div>
     </div>
-    
+    <!-- Debug Box -->
     <div class=debug-box>
-      <p>test
-        Right HEre`
-        <h3>Debug Info:</h3>
-        <span>Cursor Location:</span>
-        <span id="cursor-loc">0</span>
-      </p>
+      <table>
+        <tr>
+          <td>Cursor Start:</td>
+          <td><span id="cursor-start">0</span></td>
+        </tr>
+        <tr>
+          <td>Cursor End:</td>
+          <td><span id="cursor-end">0</span></td>
+        </tr>
+      </table>
     </div>
 
   </body>
