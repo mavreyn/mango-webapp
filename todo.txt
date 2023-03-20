@@ -9,9 +9,8 @@ prev resize
 box-sizing: border-box; in smaller guy
 Debug box
 
+line under header (option)
 
-line under header
-regex.split to keep all /(\$\$.+?\$\$)|(?:^|[^\$])(\$.+?\$)(?:[^\$]|$)/gms
 renderMathInElement once made (help with text{}
 tab stay in box?
 Scroll Sync

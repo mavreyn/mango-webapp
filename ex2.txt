@@ -7,4 +7,10 @@ Let this be true that
 $$
 x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 $$
-And if that is so then all is good
+And if that is so $x=3$then all is good
+Right here $$
+is another test
+$$
+well stuf$needs$ f to be $done$
+$$
+fds

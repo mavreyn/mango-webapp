@@ -27,26 +27,27 @@ function mainUpdate() {
 
 //updates the main display using either showdown or KaTeX
 function updateDisplay() {
-    mainDisp.innerHTML = '';
+    mainDisp.innerHTML = "";
     
-    //split on $$ to find block KaTeX
+    //split on double $$ to split on only block math
     var rawUserText = userText.value;
-    var textSections = rawUserText.split("$$");
+    var textSections = rawUserText.split(/(\$\$.+?\$\$)/gms);
     
-    //render each section depending on the content it contains
     for (let i = 0; i < textSections.length; i++) {
         const newDiv = document.createElement("div");
+        currSection = textSections[i];
         
-        if (isEven(i) || i == textSections.length - 1) {
+        if (currSection.match(/(\$\$.+?\$\$)/gms)) {
+            //render block math with KaTeX
+            currSection = currSection.replace(/^[\$\n ]+/, "").replace(/[\$\n ]+$/, "");
+            katex.render(currSection, newDiv, options);
+        } else {
             //render with Showdown
             var converter = new showdown.Converter();
-            var html = converter.makeHtml(textSections[i]);
+            var html = converter.makeHtml(currSection);
             newDiv.innerHTML = html;
-        } else {
-            //render with KaTeX
-            katex.render(textSections[i], newDiv, options);
         }
-
+        
         mainDisp.appendChild(newDiv);
     }
 
