@@ -4,13 +4,14 @@ Date: today
 ## And another thing here
 
 Let this be true that
-$$
+
 x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
-$$
-And if that is so $x=3$then all is good
-Right here $$
+
+And if that is so $x=3$ then all is good
+Right here
+
 is another test
-$$
-well stuf$needs$ f to be $done$
-$$
-fds
+
+x = 3
+
+well stuf$needs$ to be done!

@@ -4,6 +4,7 @@ Putting the js in a separate file
 */
 
 const macros = {};
+const MATH_THRESHOLD = 0.2; //0 = false 1 = true
 
 const options = {
     displayMode: true,
@@ -15,47 +16,41 @@ const userText = document.getElementById("user-text");
 
 //---------------------------------------------------------------------//
 
-function isEven(x) {
-    return x % 2 == 0;
+//compare the percent of non-word-ish characters against the threshold
+function isSectionMath(s) {
+    var nonMathChars = s.match(/[^a-zA-Z# ]/g);
+    if (nonMathChars == null || s.match(/#/)) {
+        return false;
+    } else {
+        return nonMathChars.length / s.length > MATH_THRESHOLD;
+    }
 }
 
-function mainUpdate() {
-    updateCursorLocations();
-    updateDisplay();
-}
-
-
-//updates the main display using either showdown or KaTeX
+//updates the main display
 function updateDisplay() {
     mainDisp.innerHTML = "";
+    var rawtxt = userText.value;
     
-    //split on double $$ to split on only block math
-    var rawUserText = userText.value;
-    var textSections = rawUserText.split(/(\$\$.+?\$\$)/gms);
+    sections = rawtxt.split("\n\n");
     
-    for (let i = 0; i < textSections.length; i++) {
-        const newDiv = document.createElement("div");
-        currSection = textSections[i];
-        
-        if (currSection.match(/(\$\$.+?\$\$)/gms)) {
-            //render block math with KaTeX
-            currSection = currSection.replace(/^[\$\n ]+/, "").replace(/[\$\n ]+$/, "");
-            katex.render(currSection, newDiv, options);
+    for (let i = 0; i < sections.length; i++) {
+        const newDiv = document.createElement("div")
+        curr = sections[i];
+
+        if (isSectionMath(curr)) {
+            katex.render(curr, newDiv, options);
         } else {
-            //render with Showdown
             var converter = new showdown.Converter();
-            var html = converter.makeHtml(currSection);
+            var html = converter.makeHtml(curr);
             newDiv.innerHTML = html;
         }
-        
+
         mainDisp.appendChild(newDiv);
     }
-
 }
 
-//updates the cursor location on a textarea change or click within
+//updates the cursor locations on a textarea change or click within
 function updateCursorLocations() {
     document.getElementById("cursor-start").innerText = userText.selectionStart;
     document.getElementById("cursor-end").innerText = userText.selectionEnd;
 }
-

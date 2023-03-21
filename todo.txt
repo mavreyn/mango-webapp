@@ -9,20 +9,13 @@ prev resize
 box-sizing: border-box; in smaller guy
 Debug box
 
-line under header (option)
-
-renderMathInElement once made (help with text{}
-tab stay in box?
-Scroll Sync
-settings (line under header)(isCursorInMath)
-debug mode checkbox
-Info window
-feedback box
+COMPLETELY PURGE JS
+- parse by blocks = \n+
+Scroll welcomer below mainDisp
 
 
-Vision::
-NIce borders and all
-Debug pannel
-Trigger addition panel
 
-dbf2ff
+Vision:
+- settings window
+- beautiful scheme
+- top bar options!

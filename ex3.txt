@@ -1,0 +1,36 @@
+# So this is the ultimate thing
+I finally got something working *here* let's see it in action
+
+## 1.1 Linear Lines and stuf
+
+Ok so we got this equation
+
+y = mx+b
+
+This is what we call standard form
+
+the solution (root) can be written as
+
+x = \frac{-b}{m}
+
+And this is awesome
+
+### Finding a value
+
+So if **U** want to actually find a value for the function at a point, plugging in a number will simply suffice.
+
+Take:
+
+x = 3, m = 2, b = -4
+
+Thus we have
+
+y = mx+b
+=(2)(3)+(-4)
+= 6-4
+=2
+
+
+
+
+
