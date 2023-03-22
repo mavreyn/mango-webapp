@@ -1,0 +1,21 @@
+This is the best
+
+x = 3
+
+thing riight here, a supremely awesome debug box
+
+# FTW
+
+And here we are
+
+Consider the function:
+
+f(x) = x^2+2x+1
+
+We can also say that this function is equal to 
+
+(x+1)^2
+
+So that the derivative in both cases is equal:
+
+\frac{d}{dx}f(x) = 2x+2 = 2(x+1)

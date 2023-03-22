@@ -1,21 +1,64 @@
 03.15.2023
 Lookin pretty sweet
 
-KaTeX
 GitRepo ASAP
 sans serif font family both
 markdown renderer
 prev resize
 box-sizing: border-box; in smaller guy
 Debug box
+KaTeX predictive math (threshold)
+update JS comments
+More debug info
+- cursorSection
+- mathPred (0.43)
+- isSectionMath
 
-COMPLETELY PURGE JS
-- parse by blocks = \n+
-Scroll welcomer below mainDisp
+===========================================
 
+Scroll placeholder below mainDisp
+Settings window
+- Debug checkbox
+- Description / about / why
+- How to use
+Top bar a tad taller
+Scroll Sync?
+Auto make \\ at newline for math
+Changelog (v1.0)
 
-
+Publish v1.0!
+=============================
 Vision:
 - settings window
 - beautiful scheme
 - top bar options!
+=============================
+A Time Away:
+
+Config file
+Debug Info
+- MATH_THRESHOLD
+Settings
+- TeX modifiers:
+	Auto identify
+	- MATH_THRESHOLD ADJ
+	\\ at end of line
+- Align equal signs
+- Lines under headers
+- Color Schemes changer
+- \n = line break option
+Show example texts
+Snippets
+cursorDepth (huge undertaking)
+rank( = plain text [[ span{ also ]]
+HTML to pic (export)
+Change tab behavior to work
+Feedback box / contact
+inline mathematics somehow
+BuyMeACoffee / Cashapp w/ Names list
+Save settings to user
+
+Custom domain
+maverickreynolds.com
+
+Mathematical Notation Generator Online

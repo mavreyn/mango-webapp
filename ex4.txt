@@ -1,0 +1,39 @@
+# Eigenvalues and Eigenvectors
+
+Consider the following:
+
+A\vec{v} = \lambda\vec{v}
+
+since
+
+A^{-1}A \vec{v} = A^{-1}\lambda \vec{v}
+\frac{1}{\lambda}
+
+This means 1/@L is an eigenvalue of AINV
+
+## Remark
+
+if we know @L, then the eigenspace
+
+E_@L
+
+is equal to 
+
+null(A-@lI)
+
+## Example
+
+A = \begin{bmatrix}
+8 & 6 \\
+1 & 7 \\
+\end{bmatrix}
+
+A = [
+8 6
+1 7
+]
+
+det(A-@l) = det([
+8-@l 6
+1 7-@l
+])

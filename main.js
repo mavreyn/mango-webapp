@@ -14,30 +14,55 @@ const options = {
 const mainDisp = document.getElementById("main-display");
 const userText = document.getElementById("user-text");
 
+var textBlocks = [];
+
+var cursorStart = 0;
+var cursorEnd = 0;
+var cursorBlock = 0;
+var currentSelection = "";
+
 //---------------------------------------------------------------------//
 
 //compare the percent of non-word-ish characters against the threshold
-function isSectionMath(s) {
-    var nonMathChars = s.match(/[^a-zA-Z# ]/g);
-    if (nonMathChars == null || s.match(/#/)) {
-        return false;
+function mathValue(b) {
+    var irregularChars = b.match(/[^a-zA-Z#! ]/g);
+    //if no match or the string is part of a header
+    if (irregularChars == null || b.match(/#/)) {
+        return 0;
     } else {
-        return nonMathChars.length / s.length > MATH_THRESHOLD;
+        return irregularChars.length / b.length;
     }
+}
+
+function isBlockMath(b) {
+    return mathValue(b) > MATH_THRESHOLD;
+}
+
+
+//MAIN UPDATE
+function mainUpdate() {
+    splitTextBlocks();
+    updateDisplay();
+    updateCursorInfo();
+
+    updateDebugBox();
+}
+
+//separate blocks from user
+function splitTextBlocks() {
+    textBlocks = userText.value.split("\n\n");
 }
 
 //updates the main display
 function updateDisplay() {
     mainDisp.innerHTML = "";
-    var rawtxt = userText.value;
     
-    sections = rawtxt.split("\n\n");
-    
-    for (let i = 0; i < sections.length; i++) {
+    for (let i = 0; i < textBlocks.length; i++) {
+        curr = textBlocks[i];
         const newDiv = document.createElement("div")
-        curr = sections[i];
 
-        if (isSectionMath(curr)) {
+        //if math: render with KaTeX. Otherwise: use showdown for MD
+        if (isBlockMath(curr)) {
             katex.render(curr, newDiv, options);
         } else {
             var converter = new showdown.Converter();
@@ -49,8 +74,22 @@ function updateDisplay() {
     }
 }
 
-//updates the cursor locations on a textarea change or click within
-function updateCursorLocations() {
-    document.getElementById("cursor-start").innerText = userText.selectionStart;
-    document.getElementById("cursor-end").innerText = userText.selectionEnd;
+
+//cursor locations, selection, and section
+function updateCursorInfo() {
+    cursorStart = userText.selectionStart;
+    cursorEnd = userText.selectionEnd;
+    cursorBlock = userText.value.substring(0, cursorEnd).split("\n\n").length - 1;
+    currentSelection = userText.value.substring(cursorStart, cursorEnd);
+}
+
+
+//updates the debug box
+function updateDebugBox() {
+    document.getElementById("debug-cursor-start").innerText = cursorStart;
+    document.getElementById("debug-cursor-end").innerText = cursorEnd;
+    document.getElementById("debug-cursor-block").innerText = cursorBlock;
+    document.getElementById("debug-math-value").innerText = mathValue(textBlocks[cursorBlock]).toFixed(2);
+    document.getElementById("debug-is-math").innerText = isBlockMath(textBlocks[cursorBlock]);
+    if (currentSelection != null) { document.getElementById("debug-current-selection").innerText = currentSelection; }
 }

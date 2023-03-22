@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- KaTeX and Showdown renderer -->
+<!-- MaNGO Renderer -->
 <!-- Want lots of customizability, ease of use, and shortcuts -->
 <!-- Ultimate goal: Use live in lectures and whenever by anyone -->
 
 <html lang="en-US">
   <head>
-    <title>Mango</title>
+    <title>MaNGO v0.8.1</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
     <!-- KaTeX with Auto-render Extension -->
@@ -22,11 +22,11 @@
   <body id="body">
     <!-- Top Bar here -->
     <div class="topbar">
-      <h3 id="title">MANGO v0.8</h3>
+      <h3 id="title">MaNGO v0.8.1</h3>
     </div>  
     <!-- Left Column -->
     <div id="left-column">
-      <textarea id="user-text" oninput="updateDisplay()" onclick="updateCursorLocations()" onkeyup="updateCursorLocations()" spellcheck="false"></textarea>
+      <textarea id="user-text" oninput="mainUpdate()" onclick="mainUpdate()" onkeyup="mainUpdate()" spellcheck="false"></textarea>
     </div>
     <!-- Right Column -->
     <div id="right-column">
@@ -37,11 +37,27 @@
       <table>
         <tr>
           <td>Cursor Start:</td>
-          <td><span id="cursor-start">0</span></td>
+          <td><span id="debug-cursor-start">0</span></td>
         </tr>
         <tr>
           <td>Cursor End:</td>
-          <td><span id="cursor-end">0</span></td>
+          <td><span id="debug-cursor-end">0</span></td>
+        </tr>
+        <tr>
+          <td>Cursor Block:</td>
+          <td><span id="debug-cursor-block">1</span></td>
+        </tr>
+        <tr>
+          <td>Math Value:</td>
+          <td><span id="debug-math-value"></span></td>
+        </tr>
+        <tr>
+          <td>Is Math:</td>
+          <td><span id="debug-is-math"></span></td>
+        </tr>
+        <tr>
+          <td>Current Selection:</td>
+          <td><span id="debug-current-selection"></span></td>
         </tr>
       </table>
     </div>
