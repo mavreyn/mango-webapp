@@ -35,7 +35,7 @@ function mathValue(b) {
 }
 
 function isBlockMath(b) {
-    return mathValue(b) > MATH_THRESHOLD;
+    return mathValue(b) >= MATH_THRESHOLD;
 }
 
 
@@ -63,6 +63,7 @@ function updateDisplay() {
 
         //if math: render with KaTeX. Otherwise: use showdown for MD
         if (isBlockMath(curr)) {
+            curr = curr.replace(/\n/gm, " \\\\\n")
             katex.render(curr, newDiv, options);
         } else {
             var converter = new showdown.Converter();

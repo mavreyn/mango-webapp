@@ -1,6 +1,14 @@
 03.15.2023
 Lookin pretty sweet
 
+===========================================
+VISION:
+- settings window
+- beautiful scheme
+- top bar options!
+============================================
+DONE:
+
 GitRepo ASAP
 sans serif font family both
 markdown renderer
@@ -13,29 +21,34 @@ More debug info
 - cursorSection
 - mathPred (0.43)
 - isSectionMath
+Just Mango
 
 ===========================================
+TODO:
 
-Scroll placeholder below mainDisp
+Scroll placeholder below input (change to <p>)
 Settings window
 - Debug checkbox
 - Description / about / why
 - How to use
-Top bar a tad taller
 Scroll Sync?
-Auto make \\ at newline for math
+Setting for auto newline in math
 Changelog (v1.0)
+Logo also!
 
 Publish v1.0!
 =============================
-Vision:
-- settings window
-- beautiful scheme
-- top bar options!
-=============================
-A Time Away:
+NEXT:
 
 Config file
+resize (left / right) middle
+Recalculate MathValue using +- weights sigmoid
+- Remove spaces and \n
+- (\+{([})]^xyz)(+) (#!)(-)
+- Increases with letters more than 5 together (--)
+- /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
+)isBlockMath -> isMathBlock (debug also)
+Debug in custom column
 Debug Info
 - MATH_THRESHOLD
 Settings
@@ -47,6 +60,7 @@ Settings
 - Lines under headers
 - Color Schemes changer
 - \n = line break option
+Change column nomenclature to just boxes, have all on dark grey bg
 Show example texts
 Snippets
 cursorDepth (huge undertaking)
@@ -61,4 +75,4 @@ Save settings to user
 Custom domain
 maverickreynolds.com
 
-Mathematical Notation Generator Online
+Mathematics Notation Generator Online

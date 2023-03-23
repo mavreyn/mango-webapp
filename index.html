@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<!-- MaNGO Renderer -->
+<!-- Mango Renderer -->
 <!-- Want lots of customizability, ease of use, and shortcuts -->
 <!-- Ultimate goal: Use live in lectures and whenever by anyone -->
 
 <html lang="en-US">
   <head>
-    <title>MaNGO v0.8.1</title>
+    <title>Mango v0.8.2</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- KaTeX with Auto-render Extension -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
@@ -22,8 +25,9 @@
   <body id="body">
     <!-- Top Bar here -->
     <div class="topbar">
-      <h3 id="title">MaNGO v0.8.1</h3>
-    </div>  
+      <p class="title">Mango v0.8.2</p>
+      <button class="topbar-icons" id="settings-button"><i class="fa fa-cog fa-lg"></i></button>
+    </div>
     <!-- Left Column -->
     <div id="left-column">
       <textarea id="user-text" oninput="mainUpdate()" onclick="mainUpdate()" onkeyup="mainUpdate()" spellcheck="false"></textarea>
@@ -31,6 +35,7 @@
     <!-- Right Column -->
     <div id="right-column">
       <div id="main-display"></div>
+      <div class="right-scroll-placeholder"></div>
     </div>
     <!-- Debug Box -->
     <div class=debug-box>
