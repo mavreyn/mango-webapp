@@ -22,17 +22,19 @@ More debug info
 - mathPred (0.43)
 - isSectionMath
 Just Mango
+flex boxes need divs behind as well
 
 ===========================================
 TODO:
 
-Scroll placeholder below input (change to <p>)
+Scroll placeholder below render
+Debug window
 Settings window
+- auto newline in math
 - Debug checkbox
 - Description / about / why
 - How to use
 Scroll Sync?
-Setting for auto newline in math
 Changelog (v1.0)
 Logo also!
 
@@ -50,6 +52,7 @@ Recalculate MathValue using +- weights sigmoid
 )isBlockMath -> isMathBlock (debug also)
 Debug in custom column
 Debug Info
+Make topbar icons get brighter on hover
 - MATH_THRESHOLD
 Settings
 - TeX modifiers:
@@ -59,7 +62,6 @@ Settings
 - Align equal signs
 - Lines under headers
 - Color Schemes changer
-- \n = line break option
 Change column nomenclature to just boxes, have all on dark grey bg
 Show example texts
 Snippets
@@ -68,7 +70,7 @@ rank( = plain text [[ span{ also ]]
 HTML to pic (export)
 Change tab behavior to work
 Feedback box / contact
-inline mathematics somehow
+inline mathematics somehow (inline style attribute?)
 BuyMeACoffee / Cashapp w/ Names list
 Save settings to user
 
