@@ -2,11 +2,7 @@
 Lookin pretty sweet
 
 ===========================================
-VISION:
-- settings window
-- beautiful scheme
-- top bar options!
-============================================
+
 DONE:
 
 GitRepo ASAP
@@ -28,21 +24,19 @@ flex boxes need divs behind as well
 TODO:
 
 Scroll placeholder below render
-Debug window
+Scroll Sync
 Settings window
-- auto newline in math
-- Debug checkbox
 - Description / about / why
 - How to use
-Scroll Sync?
 Changelog (v1.0)
-Logo also!
 
 Publish v1.0!
 =============================
 NEXT:
 
 Config file
+Color change (render background)
+Logo
 resize (left / right) middle
 Recalculate MathValue using +- weights sigmoid
 - Remove spaces and \n
@@ -51,7 +45,6 @@ Recalculate MathValue using +- weights sigmoid
 - /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
 )isBlockMath -> isMathBlock (debug also)
 Debug in custom column
-Debug Info
 Make topbar icons get brighter on hover
 - MATH_THRESHOLD
 Settings

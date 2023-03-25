@@ -63,7 +63,7 @@ function updateDisplay() {
 
         //if math: render with KaTeX. Otherwise: use showdown for MD
         if (isBlockMath(curr)) {
-            curr = curr.replace(/\n/gm, " \\\\\n")
+            if (useMathNewlines) { curr = curr.replace(/\n/gm, " \\\\\n"); }
             katex.render(curr, newDiv, options);
         } else {
             var converter = new showdown.Converter();
@@ -93,8 +93,3 @@ function updateDebugBox() {
     document.getElementById("debug-is-math").innerText = isBlockMath(textBlocks[cursorBlock]);
     if (currentSelection != null) { document.getElementById("debug-current-selection").innerText = currentSelection; }
 }
-
-
-$("#close-settings-button").click(function() { $("#settings-window").toggle(); });
-$("#open-settings-button").click(function() { $("#settings-window").toggle(); });
-$("#toggle-debug").click(function() { $("#debug-box").toggle() });

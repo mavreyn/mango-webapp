@@ -8,32 +8,36 @@
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
     height: 35px;
     padding: 2px;
-    background-color: #cc8b00;
+    background-color: #4d0500;
     box-sizing: border-box;
 }
 .title {
-    color: #fff;
+    color: #FFc800;
     margin: 0px;
-    width: 150px;
     float: left;
     font-weight: bold;
+    font-size: large;
+    align-self: center;
+}
+.icon-display {
+    display: flex;
+    flex-direction: row-reverse;
+    float: right;
 }
 .header-icons {
-    color: #222;
+    color: #777;
     background-color: inherit;
     cursor: pointer;
     border: none;
-    margin: 6px;
     transition: 0.2s;
-    margin: 0px;
 }
 .header-icons:hover {
     transform: rotate(30deg);
-}
-#settings-button {
-    float: right;
+    color: #bbb;
 }
 
 #main-display {
@@ -104,6 +108,7 @@
     opacity: 0.96;
     font-size: 12px;
     border-radius: 2px;
+    display: none;
 }
 
 #settings-window {
@@ -115,4 +120,5 @@
     height: 300px;
     position: absolute;
     background-color: aqua;
+    display: none;
 }
