@@ -8,9 +8,10 @@
     <title>Mango v0.9</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
-
+    <!-- fa Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <!-- KaTeX with Auto-render Extension -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
@@ -26,7 +27,7 @@
     <!-- Topbar -->
     <div class="header">
       <p class="title">Mango v0.9</p>
-      <button class="header-icons" id="settings-button"><i class="fa fa-cog fa-lg"></i></button>
+      <button class="header-icons" id="open-settings-button"><i class="fa fa-cog fa-lg"></i></button>
     </div>
     <!-- Main Display -->
     <div id="main-display">
@@ -45,8 +46,16 @@
       </div>
     </div>
 
+    <!-- Settings Window -->
+    <div id="settings-window">
+      <h1>Settings</h1>
+      <button id="close-settings-button">Exit</button>
+      <input type="checkbox" id="toggle-debug">
+        <label for="toggle-debug">Show debug Overlay</label>
+    </div>
+
     <!-- Debug Box -->
-    <div class="debug-box">
+    <div id="debug-box">
       <table>
         <tr>
           <td>Cursor Start:</td>

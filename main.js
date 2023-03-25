@@ -19,31 +19,7 @@ var textBlocks = [];
 var cursorStart = 0;
 var cursorEnd = 0;
 var cursorBlock = 0;
-var currentSelection = "";
-
-function getScrollHeight(elm){
-    var savedValue = elm.value
-    elm.value = ''
-    elm._baseScrollHeight = elm.scrollHeight
-    elm.value = savedValue
-  }
-  
-  function onExpandableTextareaInput({ target:elm }){
-    // make sure the input event originated from a textarea and it's desired to be auto-expandable
-    if( !elm.classList.contains('autoExpand') || !elm.nodeName == 'TEXTAREA' ) return
-    
-    var minRows = elm.getAttribute('data-min-rows')|0, rows;
-    !elm._baseScrollHeight && getScrollHeight(elm)
-  
-    elm.rows = minRows
-    rows = Math.ceil((elm.scrollHeight - elm._baseScrollHeight) / 36)
-    elm.rows = minRows + rows
-  }
-  
-  
-  // global delegated event listener
-  document.addEventListener('input', onExpandableTextareaInput)
-  
+var currentSelection = "";  
 
 //---------------------------------------------------------------------//
 
@@ -117,3 +93,8 @@ function updateDebugBox() {
     document.getElementById("debug-is-math").innerText = isBlockMath(textBlocks[cursorBlock]);
     if (currentSelection != null) { document.getElementById("debug-current-selection").innerText = currentSelection; }
 }
+
+
+$("#close-settings-button").click(function() { $("#settings-window").toggle(); });
+$("#open-settings-button").click(function() { $("#settings-window").toggle(); });
+$("#toggle-debug").click(function() { $("#debug-box").toggle() });
