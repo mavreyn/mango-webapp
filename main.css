@@ -94,7 +94,7 @@
 }
 
 
-.debug-box {
+#debug-box {
     right: 0;
     bottom: 0;
     position: absolute;
@@ -104,4 +104,15 @@
     opacity: 0.96;
     font-size: 12px;
     border-radius: 2px;
+}
+
+#settings-window {
+    top: 0;
+    left: 0;
+    margin-left: calc(50vw - 250px);
+    margin-top: calc(50vh - 150px);
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    background-color: aqua;
 }
