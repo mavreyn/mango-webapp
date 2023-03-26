@@ -5,10 +5,12 @@
 
 <html lang="en-US">
   <head>
-    <title>Mango v0.9.1</title>
+    <title>Mango v0.9.2</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
     <script defer src="settings.js"></script>
+    <!-- Scroll Sync -->
+    <script defer src="syncscroll.js"></script>
     <!-- fa Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- jQuery -->
@@ -27,7 +29,7 @@
   <body id="body">
     <!-- Topbar -->
     <div class="header">
-      <h1 class="title">Mango v0.9.1</h1>
+      <h1 class="title">Mango v0.9.2</h1>
       <div class="icon-display">
         <button class="header-icons" id="open-settings-button"><i class="fa fa-cog fa-lg"></i></button>
       </div>
@@ -37,14 +39,14 @@
       <!-- User Text Block -->
       <div class="user-text-block" class="main-disp-block">
         <div class="user-text-wrapper">
-          <textarea id="user-text" onkeyup="mainUpdate()" onclick="mainUpdate()" spellcheck="false"></textarea>
+          <textarea id="user-text" class="syncscroll" name="text-disp-couple" oninput="mainUpdate()" onkeyup="mainUpdate()" onclick="mainUpdate()" spellcheck="false"></textarea>
         </div>
       </div>
       <!-- Render Block -->
       <div class="render-block" class="main-disp-block">
-        <div class="render-wrapper">
-          <div id="render-display">
-          </div>
+        <div id="render-wrapper" class="syncscroll" name="text-disp-couple">
+          <div id="render-display"></div>
+          <div class="scroll-placeholder"></div>
         </div>
       </div>
     </div>
