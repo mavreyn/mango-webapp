@@ -19,7 +19,7 @@ var textBlocks = [];
 var cursorStart = 0;
 var cursorEnd = 0;
 var cursorBlock = 0;
-var currentSelection = "";  
+var currentSelection = "";
 
 //---------------------------------------------------------------------//
 

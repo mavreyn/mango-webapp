@@ -78,23 +78,24 @@
     background-color: #333;
     padding: 6px
 }
-.render-wrapper {
+#render-wrapper {
     width: 100%;
     height: 100%;
     background-color: white;
-    display: flex;
     border-radius: 5px;
     border-width: 20px;
+    overflow-y: auto;
 }
 #render-display {
     background-color: none;
-    margin: auto;
-    width: 100%;
-    height: 100%;
     color: black;
     font-size: smaller;
     padding: 4px;
     box-sizing: border-box;
+}
+.scroll-placeholder {
+    height: 180px;
+    overflow-y: auto;
 }
 
 

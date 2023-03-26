@@ -1,0 +1,57 @@
+# Mango test
+Welcome to Mango! this is going to be a little bit about what the app is about and basically just an overview of my efforts
+
+## Here we go!
+
+Basically, I write Mango to be able to detect if a block of math is math without delimiting it. Suppose we have the equation
+
+ax^2+bx+c=0
+
+and we want to find the roots. It is a tricky process, but it can be written as follows:
+
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+
+## Alternate version of the formula
+Rearranging, the formula becomes:
+
+x=\left(\frac{-b}{2a}\right)\pm \sqrt{\left(\frac{-b}{2a}\right) - \frac{c}{a}}
+
+# But wait there's more!
+
+This actually supports scroll sync which is a great way to actually make stuff happen and good stuff!
+
+So the boiler place is almost done and then we can get to the fun stuff
+
+## Linear Stuffs
+
+Lets say we have a linear function
+
+y=mx+b
+
+and I want to actually find the solution to this
+
+The solution is going to be equal to:
+
+x = \frac{-b}{m}
+
+And that folks is about as simple as it will get
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

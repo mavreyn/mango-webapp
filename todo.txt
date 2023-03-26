@@ -19,25 +19,33 @@ More debug info
 - isSectionMath
 Just Mango
 flex boxes need divs behind as well
+Make topbar icons get brighter on hover
+Scroll placeholder below render
+Scroll Sync
 
 ===========================================
 TODO:
 
-Scroll placeholder below render
-Scroll Sync
 Settings window
 - Description / about / why
 - How to use
 Changelog (v1.0)
+Examples to folder
 
 Publish v1.0!
 =============================
 NEXT:
 
 Config file
+Toggle scroll sync (setting)
+ht px depends on trailing \n's
+Line numbers, alt shortcut to move up/down, altx remove line
+Split on \n+
 Color change (render background)
-Logo
+Logo / favicon
 resize (left / right) middle
+Alignment of equal signs
+At this point, post to r/math
 Recalculate MathValue using +- weights sigmoid
 - Remove spaces and \n
 - (\+{([})]^xyz)(+) (#!)(-)
@@ -45,7 +53,6 @@ Recalculate MathValue using +- weights sigmoid
 - /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
 )isBlockMath -> isMathBlock (debug also)
 Debug in custom column
-Make topbar icons get brighter on hover
 - MATH_THRESHOLD
 Settings
 - TeX modifiers:
@@ -55,7 +62,6 @@ Settings
 - Align equal signs
 - Lines under headers
 - Color Schemes changer
-Change column nomenclature to just boxes, have all on dark grey bg
 Show example texts
 Snippets
 cursorDepth (huge undertaking)
@@ -64,7 +70,7 @@ HTML to pic (export)
 Change tab behavior to work
 Feedback box / contact
 inline mathematics somehow (inline style attribute?)
-BuyMeACoffee / Cashapp w/ Names list
+BuyMeACoffee / Cashapp w/ Names list / paypal
 Save settings to user
 
 Custom domain
