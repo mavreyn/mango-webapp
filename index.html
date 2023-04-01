@@ -5,7 +5,7 @@
 
 <html lang="en-US">
   <head>
-    <title>Mango v0.9.2</title>
+    <title>Mango v1.0</title>
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
     <script defer src="settings.js"></script>
@@ -29,7 +29,7 @@
   <body id="body">
     <!-- Topbar -->
     <div class="header">
-      <h1 class="title">Mango v0.9.2</h1>
+      <h1 class="title"><em>Mango</em></h1>
       <div class="icon-display">
         <button class="header-icons" id="open-settings-button"><i class="fa fa-cog fa-lg"></i></button>
       </div>
@@ -50,13 +50,28 @@
         </div>
       </div>
     </div>
-
+    
     <!-- Settings Window -->
+    <div id="saturation-reducer"></div>
     <div id="settings-window">
-      <h1>Settings</h1>
-      <button id="close-settings-button">Exit</button>
-      <label><input type="checkbox" id="cb-toggle-debug">Show debug Overlay</label>
-      <label><input type="checkbox" id="cb-use-math-newlines" checked>Auto insert line breaks when enter is pressed in a math block</label>
+      <div id="settings-tab-panel">
+        <h4 class="settings-tab-panel-title">SETTINGS</h4>
+        <hr class="line">
+        <button class="settings-nav-button" data-divid="settings-editor-section" id="editor-button">EDITOR</button>
+        <button class="settings-nav-button" data-divid="settings-display-section" id="editor-button">DISPLAY</button>
+      </div>
+      <div id="settings-main">
+        <div id="settings-editor-section" class="settings-section">
+          <label><input type="checkbox" id="cb-use-math-newlines" checked>Insert "\\" when enter is pressed while the cursor is in math</label>
+        </div>
+        <div id="settings-display-section" class="settings-section">
+          <label><input type="checkbox" id="cb-toggle-debug">Show debug overlay</label>
+        </div>
+      </div>
+    <div id="close-settings">
+      <button id="close-settings-button"><i class="fa fa-close"></i></button>
+      <p>ESC</p>
+    </div>
     </div>
 
     <!-- Debug Box -->

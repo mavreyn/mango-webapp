@@ -12,16 +12,17 @@
     justify-content: space-between;
     height: 35px;
     padding: 2px;
-    background-color: #4d0500;
+    background-color: #660000;
     box-sizing: border-box;
 }
 .title {
-    color: #FFc800;
-    margin: 0px;
+    color: #FFDE66;
+    margin-left: 3px;
     float: left;
     font-weight: bold;
     font-size: large;
     align-self: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .icon-display {
     display: flex;
@@ -34,10 +35,14 @@
     cursor: pointer;
     border: none;
     transition: 0.2s;
+    border: none;
 }
 .header-icons:hover {
     transform: rotate(30deg);
     color: #bbb;
+}
+.header-icons:focus {
+    outline: none
 }
 
 #main-display {
@@ -76,14 +81,13 @@
 .render-block {
     width: 50%;
     background-color: #333;
-    padding: 6px
+    padding: 6px;
 }
 #render-wrapper {
     width: 100%;
     height: 100%;
     background-color: white;
     border-radius: 5px;
-    border-width: 20px;
     overflow-y: auto;
 }
 #render-display {
@@ -113,13 +117,90 @@
 }
 
 #settings-window {
-    top: 0;
-    left: 0;
-    margin-left: calc(50vw - 250px);
-    margin-top: calc(50vh - 150px);
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 500px;
     height: 300px;
+    background-color: #333;
+    color: #DDD;
+    border-radius: 5px;
+    z-index: 2;
+}
+#settings-window label {
+    font-size: small;
+}
+#saturation-reducer {
     position: absolute;
-    background-color: aqua;
-    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    opacity: .8;
+    z-index: 1;
+}
+#settings-tab-panel {
+    color: #FFE380;
+    width: 100px;
+    background-color: #440000;
+    padding: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-top: 0px;
+}
+.line {
+    background-color: #FFE380;
+    height: 0.1px;
+    border-style: none;
+}
+.settings-tab-panel-title {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+#settings-tab-panel button {
+    font-size: xx-small;
+    font-stretch: ultra-expanded;
+    margin: 0px;
+    color: #FFE380;
+    background-color: inherit;
+    border-style: none;
+}
+#settings-tab-panel button:hover {
+    cursor: pointer;
+}
+#settings-main {
+    padding: 6px;
+    width: 350px
+}
+#close-settings {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    size: auto;
+    margin: 5px;
+}
+#close-settings-button {
+    cursor: pointer;
+    border-style: none;
+    background-color: inherit;
+    color: #DDD;
+}
+#close-settings-button:hover {
+    transition: 0.2s;
+    color: #AAA;
+}
+#close-settings p {
+    font-weight: bold;
+    margin: 0;
+    font-size: xx-small;
+    align-self: center;
+}
+.settings-section {
+    padding: 4px;
+}
+#settings-display-section {
+    display: none
 }

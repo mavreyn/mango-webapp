@@ -22,29 +22,41 @@ flex boxes need divs behind as well
 Make topbar icons get brighter on hover
 Scroll placeholder below render
 Scroll Sync
+Esc key for settings
+- side tabs
 
 ===========================================
 TODO:
 
-Settings window
-- Description / about / why
-- How to use
-Changelog (v1.0)
-Examples to folder
-
-Publish v1.0!
 =============================
 NEXT:
 
+Inline rendering
+CursorInMath
+Snippets
+Info button on top
+- What is it
+- Why I made
+- How to use
+- Changelog
+- Github
+Same menu thing
+Align equals signs
+Debug box behind settings window
 Config file
+Custom checkbox design
 Toggle scroll sync (setting)
 ht px depends on trailing \n's
 Line numbers, alt shortcut to move up/down, altx remove line
 Split on \n+
-Color change (render background)
+Color change for render (options for each)
+- Black on white
+- White on black
+- Super dark grey on super light grey
+- White on blue
+- Sequoia ligh/dark for both
 Logo / favicon
 resize (left / right) middle
-Alignment of equal signs
 At this point, post to r/math
 Recalculate MathValue using +- weights sigmoid
 - Remove spaces and \n
@@ -52,18 +64,17 @@ Recalculate MathValue using +- weights sigmoid
 - Increases with letters more than 5 together (--)
 - /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
 )isBlockMath -> isMathBlock (debug also)
+CONVERT WHOLE THING TO REACT
 Debug in custom column
 - MATH_THRESHOLD
 Settings
 - TeX modifiers:
 	Auto identify
 	- MATH_THRESHOLD ADJ
-	\\ at end of line
 - Align equal signs
 - Lines under headers
 - Color Schemes changer
 Show example texts
-Snippets
 cursorDepth (huge undertaking)
 rank( = plain text [[ span{ also ]]
 HTML to pic (export)
