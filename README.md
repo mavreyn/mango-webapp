@@ -4,14 +4,14 @@ Mango (Mathematical Notation Generator Online) is a project I designed near the 
 
 ## Features
 
-Mango is still very early in development and usability is extremely limited at this stage.
+This is Mango's first release. Usability is extremely limited at this stage.
 
 - Automatically detects blocks of text containing mathematical expressions. No delimiters required
 - Scroll sync between user input and render output containters
 
 ## Future Updates
 
-This is a highly active project for me, and will continue to see meaningful and useful updates to make the project valuable for notetaking and use in the classroom.
+This is a highly active project for me, and will continue to see meaningful and useful updates to make the project valuable for notetaking and use in the classroom. I may rebuild using React.js in the near future before it gets too complicated
 
 - Will auto align equal signs in math blocks containing more than one line where each line contains the character '='
 - Major improvement to the robustness of the `isBlockMath()` function to reduce false positives and false negatives
