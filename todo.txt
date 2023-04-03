@@ -4,26 +4,10 @@ Lookin pretty sweet
 ===========================================
 
 DONE:
-
-GitRepo ASAP
-sans serif font family both
-markdown renderer
-prev resize
-box-sizing: border-box; in smaller guy
-Debug box
-KaTeX predictive math (threshold)
-update JS comments
-More debug info
-- cursorSection
-- mathPred (0.43)
-- isSectionMath
-Just Mango
-flex boxes need divs behind as well
-Make topbar icons get brighter on hover
-Scroll placeholder below render
-Scroll Sync
-Esc key for settings
-- side tabs
+Split on \n{2,}, trim leading/trailing \n
+Inline math between $$
+Local Storage for textarea
+Take divs out
 
 ===========================================
 TODO:
@@ -31,8 +15,8 @@ TODO:
 =============================
 NEXT:
 
-Inline rendering
 CursorInMath
+Rebuild in Reactjs
 Snippets
 Info button on top
 - What is it
@@ -42,13 +26,11 @@ Info button on top
 - Github
 Same menu thing
 Align equals signs
-Debug box behind settings window
 Config file
 Custom checkbox design
 Toggle scroll sync (setting)
 ht px depends on trailing \n's
 Line numbers, alt shortcut to move up/down, altx remove line
-Split on \n+
 Color change for render (options for each)
 - Black on white
 - White on black
@@ -57,14 +39,13 @@ Color change for render (options for each)
 - Sequoia ligh/dark for both
 Logo / favicon
 resize (left / right) middle
-At this point, post to r/math
 Recalculate MathValue using +- weights sigmoid
 - Remove spaces and \n
 - (\+{([})]^xyz)(+) (#!)(-)
 - Increases with letters more than 5 together (--)
 - /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
 )isBlockMath -> isMathBlock (debug also)
-CONVERT WHOLE THING TO REACT
+At this point, post to r/math
 Debug in custom column
 - MATH_THRESHOLD
 Settings

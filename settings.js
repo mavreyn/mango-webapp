@@ -1,6 +1,9 @@
+//get window variables
 const settingsWindow = $("#settings-window");
-settingsWindow.hide();
 const saturationReducer = $("#saturation-reducer");
+
+//set defaults
+settingsWindow.hide();
 saturationReducer.hide();
 
 var useMathNewlines = true;
@@ -23,17 +26,14 @@ $(document).keydown(function(event) {
     }
 });
 
-//Change which window is visible
-$(document).ready(function() {
-    // Add click event listener to buttons
-    $(".settings-nav-button").click(function() {
-      // Get the ID of the div element to show
-      const divId = $(this).data("divid");
-      // Show the corresponding div element and hide the others
-      $(".settings-section").hide();
-      $("#" + divId).show();
-    });
-  });
+//Change which settings window is visible
+$(".settings-nav-button").click(function() {
+    // Get the ID of the div element to show
+    const divId = $(this).data("divid");
+    // Show the corresponding div element and hide the others
+    $(".settings-section").hide();
+    $("#" + divId).show();
+});
 
 //change settings
 $("#cb-toggle-debug").click(function() { $("#debug-box").toggle() });

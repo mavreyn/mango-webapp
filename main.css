@@ -116,6 +116,7 @@
     display: none;
 }
 
+
 #settings-window {
     display: flex;
     position: absolute;
@@ -151,14 +152,14 @@
     border-bottom-left-radius: 5px;
     padding-top: 0px;
 }
-.line {
+#settings-tab-panel h4 {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+#settings-tab-panel hr {
     background-color: #FFE380;
     height: 0.1px;
     border-style: none;
-}
-.settings-tab-panel-title {
-    margin-top: 15px;
-    margin-bottom: 0px;
 }
 #settings-tab-panel button {
     font-size: xx-small;
