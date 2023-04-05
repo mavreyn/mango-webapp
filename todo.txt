@@ -2,20 +2,16 @@
 Lookin pretty sweet
 
 ===========================================
-
-DONE:
-Split on \n{2,}, trim leading/trailing \n
-Inline math between $$
-Local Storage for textarea
-Take divs out
+Improvements to math function
 
 ===========================================
 TODO:
 
+Detect math tokens inside block (if $ around$, then don't touch)
+
 =============================
 NEXT:
 
-CursorInMath
 Rebuild in Reactjs
 Snippets
 Info button on top
@@ -39,12 +35,7 @@ Color change for render (options for each)
 - Sequoia ligh/dark for both
 Logo / favicon
 resize (left / right) middle
-Recalculate MathValue using +- weights sigmoid
-- Remove spaces and \n
-- (\+{([})]^xyz)(+) (#!)(-)
-- Increases with letters more than 5 together (--)
-- /\\[a-z]+[\(\{]/gm = \tan( or \span{ huge (++)
-)isBlockMath -> isMathBlock (debug also)
+Recalculate MathValue using += weights before sigmoid
 At this point, post to r/math
 Debug in custom column
 - MATH_THRESHOLD
@@ -64,6 +55,7 @@ Feedback box / contact
 inline mathematics somehow (inline style attribute?)
 BuyMeACoffee / Cashapp w/ Names list / paypal
 Save settings to user
+CursorInMath
 
 Custom domain
 maverickreynolds.com
