@@ -2,14 +2,31 @@
 Lookin pretty sweet
 
 ===========================================
-Improvements to math function
+Huge Improvements to math function
+Detect math tokens in block
+- ignore dollar signs)
+HOLY CRAP!!!
 
 ===========================================
-TODO:
+TODO in order:
 
-Detect math tokens inside block (if $ around$, then don't touch)
 
-=============================
+sr, cb, =/ or /=
+Debug on default
+Align equal signs
+- Make setting for this as well
+reformat snippets json
+xvc yhat
+
+a1, b5, fraction
+MATH_THRESHOLD TO SETTINGS
+expand parenthesis
+useSnippets setting
+save settings to local storage
+Auto detect math blocks setting
+Auto detect inline math setting
+
+===========================================
 NEXT:
 
 Rebuild in Reactjs
@@ -20,25 +37,23 @@ Info button on top
 - How to use
 - Changelog
 - Github
-Same menu thing
-Align equals signs
 Config file
 Custom checkbox design
 Toggle scroll sync (setting)
+Brackets = col vectors
 ht px depends on trailing \n's
 Line numbers, alt shortcut to move up/down, altx remove line
 Color change for render (options for each)
 - Black on white
 - White on black
 - Super dark grey on super light grey
-- White on blue
+- White on navy blue
 - Sequoia ligh/dark for both
 Logo / favicon
 resize (left / right) middle
 Recalculate MathValue using += weights before sigmoid
 At this point, post to r/math
 Debug in custom column
-- MATH_THRESHOLD
 Settings
 - TeX modifiers:
 	Auto identify
@@ -47,6 +62,7 @@ Settings
 - Lines under headers
 - Color Schemes changer
 Show example texts
+Override for false positives in text
 cursorDepth (huge undertaking)
 rank( = plain text [[ span{ also ]]
 HTML to pic (export)
@@ -54,8 +70,9 @@ Change tab behavior to work
 Feedback box / contact
 inline mathematics somehow (inline style attribute?)
 BuyMeACoffee / Cashapp w/ Names list / paypal
-Save settings to user
 CursorInMath
+User shortcuts within document (remembered tokens)
+Desmos integration
 
 Custom domain
 maverickreynolds.com

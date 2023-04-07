@@ -1,10 +1,12 @@
 //get window variables
 const settingsWindow = $("#settings-window");
 const saturationReducer = $("#saturation-reducer");
+const debugBox = $("#debug-box");
 
 //set defaults
 settingsWindow.hide();
 saturationReducer.hide();
+debugBox.show()
 
 var useMathNewlines = true;
 

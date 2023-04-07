@@ -77,6 +77,9 @@
     border-radius: 5px;
     resize: none;
 }
+#user-text:hover {
+    cursor: text;
+}
 
 .render-block {
     width: 50%;

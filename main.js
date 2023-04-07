@@ -12,7 +12,8 @@ const SNIPPETS = {
     "@l": "\\lambda",
     "IN": "\\in",
     "Rn": "\\R^n",
-    "===": "\\equiv "
+    "===": "\\equiv ",
+    "vvc": "\\vec{v} "
 }
 
 const userText = document.getElementById("user-text");
@@ -47,7 +48,7 @@ function mathValue(block) {
         const WORDS_WEIGHT = 1;
         //count how many math characters appear, or single letters (variables)
         var mathChars = block.match(/[\^\+\\{}()=]|(?<![a-zA-Z\n])\w(?![a-zA-Z\n])/gm);
-        const MATH_WEIGHT = 0.5;
+        const MATH_WEIGHT = 0.2;
 
         if (wordTokens === null) {
             return 1;
@@ -97,33 +98,54 @@ function updateDisplay() {
                 throwOnError: false
             });
             mainDisp.innerHTML += mathDiv.innerHTML;
-
         } else {
             //otherwise: use showdown for MD
-            var converter = new showdown.Converter();
+            var converter = new showdown.Converter({"noHeaderId": true});
             var html = converter.makeHtml(curr);
-            
-            //replace anything between dollar signs with inline KaTeX
-            html = html.replace(/\$(.*?)\$/gm, "<span>$1</span>");
-            
-            //innerHTML ensures elements are created inside
-            //now just the word <span>
-            const newDiv = document.createElement("p");
-            newDiv.innerHTML = html;
-            const contentElt = newDiv.children[0];
+            //generate html inside sectionElt
+            var tempElt = document.createElement("div");
+            tempElt.innerHTML = html;
+            var sectionElt = tempElt.firstChild;
+            html = sectionElt.innerHTML;
 
-            //loop through subsections
-            for (let j = 0; j < contentElt.children.length; j++) {
-                var subCurr = contentElt.children[j];
-                //render with KaTeX if in a span element
-                if (subCurr.tagName === "SPAN") {
-                    katex.render(subCurr.innerText.trim(), subCurr, { throwOnError: false });
-                    subCurr.outerHTML = subCurr.innerHTML;
+            //split on the dollars signs if they are in pairs (affirmed math)
+            var mathSplits = html.split(/\$/gm);
+            var inlinesClosed = mathSplits.length % 2 != 0;
+            
+            //if all $ have matching pair
+            if (inlinesClosed) {
+                var newHTML = '';
+                //for each subgroup, alternating math and non math
+                for (let j = 0; j < mathSplits.length; j++) {
+                    subCurr = mathSplits[j];
+
+                    if (j % 2 != 0) {
+                        //if in a math inline, trim and render
+                        const mathSpan = document.createElement("span");
+                        katex.render(subCurr.trim(), mathSpan, { throwOnError: false });
+                        subCurr = mathSpan.innerHTML;
+                    } else {
+                        //otherwise, look for math tokens
+                        tokens = subCurr.split(" ");
+                        subCurr = ""
+
+                        for (let k = 0; k < tokens.length; k++) {
+                            currToken = tokens[k];
+                            //render tokens that match the following regex
+                            if (currToken.match(/[\=\\]/)) {
+                                const mathSpan = document.createElement("span");
+                                katex.render(currToken, mathSpan, { throwOnError: false });
+                                tokens[k] = mathSpan.innerHTML;
+                            }
+                            subCurr += tokens[k] + " ";
+                        }
+                    }
+                    newHTML += subCurr;
                 }
+                sectionElt.innerHTML = newHTML;
             }
-            mainDisp.appendChild(contentElt);
+            mainDisp.appendChild(sectionElt);
         }
-
     }
 }
 
@@ -152,7 +174,7 @@ function updateDebugBox() {
 //IF CURSOR IS AT THAT POSITION AND LAST CHARACTER TYPED WAS THAT ONE
 function useSnippets() {
     for (let key in SNIPPETS) {
-        if (userText.value.substring(userText.value.length - key.length) == key) {
+        if (userText.value.trim().substring(userText.value.trim().length - key.length) == key) {
             userText.value = userText.value.replace(key, SNIPPETS[key]);
         }
     }   

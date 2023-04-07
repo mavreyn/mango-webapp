@@ -1,8 +1,9 @@
 # Changelog
 
-### 1.0.2 April 5, 2023
+### 1.0.2 April 7, 2023
 
-- The `isMathBlock()` function will search for at least one word without leading \ or trailing { in the block. If successful, the block is categorized as text
+- The `isMathBlock()` function will search for plain words as well as math characters in a block, and pass the weighted sum through a sigmoid function to gauge an overall rating for the block
+- Basic autodetection and rendering of math tokens in a text block containing either `=` or `\`
 
 ### 1.0.1 April 3, 2023
 
