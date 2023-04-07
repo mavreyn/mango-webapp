@@ -3,7 +3,7 @@ Putting the js in a separate file
 03.09.2023
 */
 
-const MATH_THRESHOLD = 0.8; //0 = false 1 = true
+const MATH_THRESHOLD = 0.5; //0 = false 1 = true
 
 //remember to escape out \ with \\
 const SNIPPETS = {
@@ -31,22 +31,30 @@ userText.value = localStorage.getItem('userText');
 //---------------------------------------------------------------------//
 
 function sigmoid(z) {
-    return 1 / (1 + Math.exp(-z));
+    const SENSITIVITY = 0.2;
+    return 1 / (1 + Math.exp(-SENSITIVITY * z));
 }
 
 //threshold function to determine if a block of text is math or plain
-//AT THE MOMENT, ONE REGULAR WORD WILL DECLARE NON MATH
+//ranges from 0 being non math to 1 being all math
 function mathValue(block) {
     if (block.match(/^#/) || block.length === 1) {
         // skip headers and first characters
         return 0;
     } else {
         //count how many word there are not proceeded with \ or followed with {
-        var matches = block.match(/(?<![\w\\])[a-zA-Z]{2,}(?![\w{])/gm);
-        if (matches === null) {
-            return 1
+        var wordTokens = block.match(/(?<![\w\\{])[a-zA-Z]{2,}(?![\w{}])/gm);
+        const WORDS_WEIGHT = 1;
+        //count how many math characters appear, or single letters (variables)
+        var mathChars = block.match(/[\^\+\\{}()=]|(?<![a-zA-Z\n])\w(?![a-zA-Z\n])/gm);
+        const MATH_WEIGHT = 0.5;
+
+        if (wordTokens === null) {
+            return 1;
+        } else if (mathChars === null) {
+            return 0;
         } else {
-            return sigmoid(-matches.length);
+            return sigmoid(-WORDS_WEIGHT * wordTokens.length + MATH_WEIGHT * mathChars.length);
         }
     }
 }
