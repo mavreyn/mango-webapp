@@ -10,12 +10,16 @@ const SNIPPETS = {
     "asdf": "ghjk",
     "yo": "big dawg",
     "@l": "\\lambda",
-    "IN": "\\in",
+    "inn": "\\in",
     "Rn": "\\R^n",
     "===": "\\equiv ",
     "vvc": "\\vec{v} ",
-    "dot": " \\cot ",
-    "xx": "\\times"
+    "xx": "\\times",
+    "sr": "^2",
+    "cb": "^3",
+    "*": "\\cdot",
+    "wperp": "W^⟂",
+    "INV": "^{-1}"
 }
 
 const userText = document.getElementById("user-text");
@@ -26,6 +30,8 @@ var textBlocks = [];
 var cursorStart = 0;
 var cursorEnd = 0;
 var cursorBlock = 0;
+var currentChar = "";
+var charEntered = "";
 var currentSelection = "";
 
 //set text area to pull from local storage
@@ -46,7 +52,7 @@ function mathValue(block) {
         return 0;
     } else {
         //count how many word there are not proceeded with \ or followed with {
-        var wordTokens = block.match(/(?<![\w\\{])[a-zA-Z]{2,}(?![\w{}])/gm);
+        var wordTokens = block.match(/(?<![\w\\{])[a-zA-Z]{2,}(?![\w{}+^])/gm);
         const WORDS_WEIGHT = 1;
         //count how many math characters appear, or single letters (variables)
         var mathChars = block.match(/[\^\+\\{}()=]|(?<![a-zA-Z\n])\w(?![a-zA-Z\n])/gm);
@@ -93,10 +99,22 @@ function updateDisplay() {
         //if math: render with KaTeX
         if (isMathBlock(curr)) {
             const mathDiv = document.createElement("div");
-            if (useMathNewlines) { curr = curr.replace(/\n/gm, " \\\\\n"); }
+            //add \\ to end of lines without \\
+            if (useMathNewlines) { curr = curr.replace(/(?<!\\\\)\n/gm, " \\\\\n"); }
+            //align sections with =
             if (autoAlignEquals && curr.match(/\=.+\n.*\=/gm)) {
                 curr = "\\begin{align*} " + curr + " \\end{align*}";
                 curr = curr.replace(/\=/gm, "&=");
+            }
+            //create column vectors from easy syntax
+            if (columnVecSyntax && curr.match(/\[.*\]/gm)) {
+                function colVecToMatrix(match) {
+                    match = match.replaceAll(" ", "\\\\");                                                      // turn spaces into \\
+                    match = match.replaceAll("...", "\\vdots")                                                  // turn ellipses vertical
+                    match = match.replace(/\[/gm, "\\begin{bmatrix}").replace(/\]/gm, "\\end{bmatrix}");        //begin and end to column vector
+                    return match;
+                }
+                curr = curr.replaceAll(/\[.*?\]/gm, colVecToMatrix);
             }
 
             katex.render(curr, mathDiv, {
@@ -138,7 +156,7 @@ function updateDisplay() {
                         for (let k = 0; k < tokens.length; k++) {
                             currToken = tokens[k];
                             //render tokens that match the following regex
-                            if (currToken.match(/[\=\\]/)) {
+                            if (currToken.match(/[\=\\\+\^]/)) {                            //find these special characters in each token
                                 const mathSpan = document.createElement("span");
                                 katex.render(currToken, mathSpan, { throwOnError: false });
                                 tokens[k] = mathSpan.innerHTML;
@@ -160,8 +178,14 @@ function updateDisplay() {
 function updateCursorInfo() {
     cursorStart = userText.selectionStart;
     cursorEnd = userText.selectionEnd;
+    currentChar = userText.value[cursorStart - 1];
     cursorBlock = userText.value.substring(0, cursorEnd).split(/\n{2,}/gm).length - 1;
     currentSelection = userText.value.substring(cursorStart, cursorEnd);
+}
+
+//get the last character entered
+function getLastChar(event) {
+    charEntered = String.fromCharCode(event.which || event.keyCode);
 }
 
 
@@ -169,6 +193,8 @@ function updateCursorInfo() {
 function updateDebugBox() {
     document.getElementById("debug-cursor-start").innerText = cursorStart;
     document.getElementById("debug-cursor-end").innerText = cursorEnd;
+    document.getElementById("debug-current-char").innerText = currentChar;
+    document.getElementById("debug-char-entered").innerText = charEntered;
     document.getElementById("debug-cursor-block").innerText = cursorBlock;
     document.getElementById("debug-math-value").innerText = mathValue(textBlocks[cursorBlock]).toFixed(2);
     document.getElementById("debug-is-math").innerText = isMathBlock(textBlocks[cursorBlock]);
@@ -188,24 +214,14 @@ function useSnippets() {
 
 // http://jsfiddle.net/o5ay42kr/
 
-// var x = /tes(t)/gi;
-// 
-// var y = "I am Testing a thing for my test here";
-// 
-// var matches = y.match(x);
-// 
-// if (matches) {
-//     alert(matches[0].length)
-// }
-// 
-// var keys = [];
-// $('#target').keypress(function(e) {
-//     keys.unshift(e.which);
-//     update();
-// });
-// 
-// function update() {
-//        $('#last')
-//            .prepend($('<li/>').text(String.fromCharCode(keys[0])))
-//            .children(':eq(5)').remove();
-// }
+var charEntered;
+$('#user-text').keypress(function(e) {
+    keys.unshift(e.which);
+    update();
+});
+
+function update() {
+       $('#last')
+           .prepend($('<li/>').text(String.fromCharCode(keys[0])))
+           .children(':eq(5)').remove();
+}

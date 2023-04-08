@@ -39,7 +39,7 @@
       <!-- User Text Block -->
       <div class="user-text-block" class="main-disp-block">
         <div class="user-text-wrapper">
-          <textarea id="user-text" class="syncscroll" name="text-disp-couple" oninput="mainUpdate()" onkeyup="mainUpdate()" onclick="mainUpdate()" spellcheck="false"></textarea>
+          <textarea id="user-text" class="syncscroll" name="text-disp-couple" oninput="mainUpdate()" onkeyup="mainUpdate(event)" onkeypress="getLastChar(event)" onclick="mainUpdate()" spellcheck="false"></textarea>
         </div>
       </div>
       <!-- Render Block -->
@@ -63,7 +63,8 @@
       <div id="settings-main">
         <div id="settings-editor-section" class="settings-section">
           <label><input type="checkbox" id="cb-use-math-newlines" checked>Replace enter with '\\' when in math block</label><br/>
-          <label><input type="checkbox" id="cb-auto-align-equals" checked>Align equal signs on different lines in same math block</label>
+          <label><input type="checkbox" id="cb-auto-align-equals" checked>Align equal signs on different lines in same math block</label><br/>
+          <label><input type="checkbox" id="cb-use-col-vec-syntax" checked>Use column vector syntax</label><br/>
         </div>
         <div id="settings-display-section" class="settings-section">
           <label><input type="checkbox" id="cb-toggle-debug" checked>Show debug overlay</label>
@@ -85,6 +86,14 @@
         <tr>
           <td>Cursor End:</td>
           <td><span id="debug-cursor-end">0</span></td>
+        </tr>
+        <tr>
+          <td>Current Char:</td>
+          <td><span id="debug-current-char"></span></td>
+        </tr>
+        <tr>
+          <td>Last Char Entered:</td>
+          <td><span id="debug-char-entered"></span></td>
         </tr>
         <tr>
           <td>Cursor Block:</td>

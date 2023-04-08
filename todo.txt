@@ -5,21 +5,16 @@ Lookin pretty sweet
 
 Align equal signs
 - Make setting for this as well
+Added current/last entered char info to debug box
+Column Vector easy notation! brackets, anything ... goes vert
+sr, cb
 
 ===========================================
 TODO in order:
 
 
-Auto detect inline math setting
-
-String to show last 20 chars typed (letter steam)
-
-Get last char typed
-Get cursor pos
-sr, cb, =/ or /=
+=/ or /=
 - xvc yhat
-xx= \times
-dot = \cdot
 reformat snippets json
 
 a1, b5, fraction
@@ -28,8 +23,11 @@ expand parenthesis (in back)
 - setting for this
 useSnippets setting
 save settings to local storage
-Remove quotes from text in elements panel!
-Remove current selection debug panel
+
+/\S+[=+][^ .,]+|\\\S+|(?<= )[b-z](?= )/gm
+will find all math in text block
+Make asy matrix notation
+Just see if token has $ at start / end
 
 ===========================================
 NEXT:
@@ -45,7 +43,6 @@ Info button on top
 Config file
 Custom checkbox design
 Toggle scroll sync (setting)
-Brackets = col vectors
 ht px depends on trailing \n's
 Line numbers, alt shortcut to move up/down, altx remove line
 Color change for render (options for each)
@@ -73,7 +70,6 @@ rank( = plain text [[ span{ also ]]
 HTML to pic (export)
 Change tab behavior to work
 Feedback box / contact
-inline mathematics somehow (inline style attribute?)
 BuyMeACoffee / Cashapp w/ Names list / paypal
 CursorInMath
 User shortcuts within document (remembered tokens)

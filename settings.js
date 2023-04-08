@@ -11,6 +11,7 @@ debugBox.show()
 var useMathNewlines = true;
 var autoAlignEquals = true;
 var autoDetectMath = true;
+var columnVecSyntax = true;
 
 //toggle settings window
 $("#close-settings-button").click(function() {
@@ -43,3 +44,4 @@ $(".settings-nav-button").click(function() {
 $("#cb-toggle-debug").click(function() { $("#debug-box").toggle() });
 $("#cb-use-math-newlines").click(function() { useMathNewlines = $("#cb-use-math-newlines").is(":checked"); updateDisplay(); });
 $("#cb-auto-align-equals").click(function() { autoAlignEquals = $("#cb-auto-align-equals").is(":checked"); updateDisplay(); });
+$("#cb-use-col-vec-syntax").click(function() { columnVecSyntax = $("#cb-use-col-vec-syntax").is(":checked"); updateDisplay(); });
