@@ -1,19 +1,18 @@
 # Changelog
 
-### 1.2.0 April 7, 2023
+### 1.2.0 April 8, 2023
 
+- Basic autodetection and rendering of math tokens in a text block containing either `=`, `\`, `+`, or `^`
+- Support for column vector notation! Use `[]` with tokens inside separated by spaces for KaTeX to render as a column vector. `...` will render as vertical ellipses. Example: `[1 4 2.0 \vec{x} ... W]`
 - The `isMathBlock()` function will search for plain words as well as math characters in a block, and pass the weighted sum through a sigmoid function to gauge an overall rating for the block
-- Basic autodetection and rendering of math tokens in a text block containing either `=` or `\`
-
-### 1.1.1 April 5, 2023
-
-- The `isMathBlock()` function find a word not following `\` and not trailing `{` to determine if the block is math
+- Math blocks that contain `=` in separate lines will be wrapped in an `{align*}` command to horizontally align equal signs
+- Debug box now shows the character at the cursor and the last character entered into the debug box
 
 ### 1.1.0 April 3, 2023
 
 - Settings window contains editor and display subsections
-- Block splitting will identify multiple newlines as a single delimiter and ignore leading and trailing newlines
-- Expressions typed between $$ will render as inline math
+- Block splitting will now identify multiple newlines as a single delimiter and ignore leading and trailing newlines
+- Expressions typed between `$$` will render as inline math
 - Saves textarea to client's local storage
 - Removed div wrappers around each child in main display element
 
