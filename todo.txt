@@ -2,35 +2,40 @@
 Lookin pretty sweet
 
 ===========================================
-Huge Improvements to math function
-Detect math tokens in block
-- ignore dollar signs)
-HOLY CRAP!!!
+
+Align equal signs
+- Make setting for this as well
 
 ===========================================
 TODO in order:
 
 
+Auto detect inline math setting
+
+String to show last 20 chars typed (letter steam)
+
+Get last char typed
+Get cursor pos
 sr, cb, =/ or /=
-Debug on default
-Align equal signs
-- Make setting for this as well
+- xvc yhat
+xx= \times
+dot = \cdot
 reformat snippets json
-xvc yhat
 
 a1, b5, fraction
 MATH_THRESHOLD TO SETTINGS
-expand parenthesis
+expand parenthesis (in back)
+- setting for this
 useSnippets setting
 save settings to local storage
-Auto detect math blocks setting
-Auto detect inline math setting
+Remove quotes from text in elements panel!
+Remove current selection debug panel
 
 ===========================================
 NEXT:
 
 Rebuild in Reactjs
-Snippets
+Snippets big all rest!
 Info button on top
 - What is it
 - Why I made

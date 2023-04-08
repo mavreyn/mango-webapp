@@ -9,6 +9,8 @@ saturationReducer.hide();
 debugBox.show()
 
 var useMathNewlines = true;
+var autoAlignEquals = true;
+var autoDetectMath = true;
 
 //toggle settings window
 $("#close-settings-button").click(function() {
@@ -28,7 +30,7 @@ $(document).keydown(function(event) {
     }
 });
 
-//Change which settings window is visible
+//Change which settings sections is visible
 $(".settings-nav-button").click(function() {
     // Get the ID of the div element to show
     const divId = $(this).data("divid");
@@ -40,3 +42,4 @@ $(".settings-nav-button").click(function() {
 //change settings
 $("#cb-toggle-debug").click(function() { $("#debug-box").toggle() });
 $("#cb-use-math-newlines").click(function() { useMathNewlines = $("#cb-use-math-newlines").is(":checked"); updateDisplay(); });
+$("#cb-auto-align-equals").click(function() { autoAlignEquals = $("#cb-auto-align-equals").is(":checked"); updateDisplay(); });

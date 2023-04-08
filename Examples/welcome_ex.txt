@@ -1,0 +1,28 @@
+# Welcome to Mango
+
+Mango is in a very early state of development right now, but it's got some pretty cool features so far!
+
+## What's Up Doc?
+
+First and foremost, mango can render *simple* markdown text with **ease**
+
+New setions will appear as separate elements in the render display DOM.
+
+## The Meat and Potatoes
+
+Here's where Mango starts to excel. Mango had powerful KaTeX integration built right it. Simply bound an expression in $2$ dollar signs and KaTeX will detect the mathematics as $ x + 1 $ such (even with leading and trailing spaces.
+
+More than that, Mango is beginning to see autodetection of math within elements. x=3 and \vec{v} are examples of expressions that Mango has automatically identified as mathematics and rendered inline
+
+# Other
+
+Mango of course knows when blocks are math, no delimiters required
+
+f(x) = x^2+2x+1
+=(x+1)^2
+
+And will automatically render the portion with KaTeX's block rendering.
+
+## Much more to come
+
+Including snippets \R^n among many other things!

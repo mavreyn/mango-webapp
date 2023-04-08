@@ -13,7 +13,9 @@ const SNIPPETS = {
     "IN": "\\in",
     "Rn": "\\R^n",
     "===": "\\equiv ",
-    "vvc": "\\vec{v} "
+    "vvc": "\\vec{v} ",
+    "dot": " \\cot ",
+    "xx": "\\times"
 }
 
 const userText = document.getElementById("user-text");
@@ -92,6 +94,10 @@ function updateDisplay() {
         if (isMathBlock(curr)) {
             const mathDiv = document.createElement("div");
             if (useMathNewlines) { curr = curr.replace(/\n/gm, " \\\\\n"); }
+            if (autoAlignEquals && curr.match(/\=.+\n.*\=/gm)) {
+                curr = "\\begin{align*} " + curr + " \\end{align*}";
+                curr = curr.replace(/\=/gm, "&=");
+            }
 
             katex.render(curr, mathDiv, {
                 displayMode: true,
