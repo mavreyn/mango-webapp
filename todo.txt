@@ -6,22 +6,21 @@ Lookin pretty sweet
 reformat snippets json
 Snippets implemented, regex!
 a1, b5
+=/ or /=
+Back end improvements for $$ for inline
+- Now include $ with a token to render that token as math if not autodetected
 ===========================================
 TODO in order:
 
-=/ or /=
 an, en (somehow)
 fraction
 MATH_THRESHOLD TO SETTINGS
 expand parenthesis (in back)
 - setting for this
 useSnippets setting
+Try html after rendering, so I can use `
 save settings to local storage
 Snippets to back end?
-
-/\S+[=+][^ .,]+|\\\S+|(?<= )[b-z](?= )/gm
-will find all math in text block
-` to render with math (remove subsectioning
 
 Give credit to showdown and KaTeX
 
