@@ -1,0 +1,36 @@
+So this is what typing looks like. A normal person typing would be able to go about normally and have absolutely no idea of the Power of Mango! Maybe they would figure out with a little bit of time that the can *make* some words italic and **some other sections** bold as they please
+
+# And even Better
+
+Since Mango uses markdown rendering with showdown, the user would be pleased to figure this out
+
+Eventually, maybe the user would end up typing a phrase like x=3 and they would find that it renders a little differently that other phrases. They could even type something more complex and intricate such as f(x)=x^2+bx+c and they would find that it renders just as well inline without any delimiters!
+
+## Blocks
+
+Blocks can be created as such:
+
+4x+2y=5
+3x-y=12
+
+And it would be formatted incredibly well. Typing math in this way is literally effortless and so easy for the user.
+
+Even More complicated expressions such as
+
+A \vec{v} = \lambda \vec{v}
+
+Work absolutely beautifully
+
+## Matrix and Linear Algebra
+
+Typing column vectors is a sinch with Mango, Use the notation:
+
+[1 2 3] \in \R^3
+
+to create a simple column vector
+
+It even supports more complex abilities such as vdots when used within the notation
+
+[x_1 x_2 ... x_n] \in  \R^n
+
+And it takes hardly any time at all, being very natural for the user!

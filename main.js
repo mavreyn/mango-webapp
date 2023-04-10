@@ -5,23 +5,6 @@ Putting the js in a separate file
 
 const MATH_THRESHOLD = 0.5; //0 = false 1 = true
 
-//remember to escape out \ with \\
-const SNIPPETS = {
-    "asdf": "ghjk",
-    "yo": "big dawg",
-    "@l": "\\lambda",
-    "inn": "\\in",
-    "Rn": "\\R^n",
-    "===": "\\equiv ",
-    "vvc": "\\vec{v} ",
-    "xx": "\\times",
-    "sr": "^2",
-    "cb": "^3",
-    "*": "\\cdot",
-    "wperp": "W^⟂",
-    "INV": "^{-1}"
-}
-
 const userText = document.getElementById("user-text");
 const mainDisp = document.getElementById("render-display");
 
@@ -124,7 +107,7 @@ function updateDisplay() {
             mainDisp.innerHTML += mathDiv.innerHTML;
         } else {
             //otherwise: use showdown for MD
-            var converter = new showdown.Converter({"noHeaderId": true});
+            var converter = new showdown.Converter({"noHeaderId": true, "literalMidWordUnderscores": true, "ellipsis": false});
             var html = converter.makeHtml(curr);
             //generate html inside sectionElt
             var tempElt = document.createElement("div");
@@ -156,7 +139,7 @@ function updateDisplay() {
                         for (let k = 0; k < tokens.length; k++) {
                             currToken = tokens[k];
                             //render tokens that match the following regex
-                            if (currToken.match(/[\=\\\+\^]/)) {                            //find these special characters in each token
+                            if (currToken.match(/[\=\\\+\^\_]|\.\.\./)) {                            //find these special characters in each token
                                 const mathSpan = document.createElement("span");
                                 katex.render(currToken, mathSpan, { throwOnError: false });
                                 tokens[k] = mathSpan.innerHTML;
@@ -202,26 +185,20 @@ function updateDebugBox() {
 }
 
 
-//replaces some groups of characters
-//IF CURSOR IS AT THAT POSITION AND LAST CHARACTER TYPED WAS THAT ONE
+// REFORMAT JSON TO PROPER
+// SPLIT ON CURSOR
+// STORE CURSOR POS
+// IF MATCH
+// REPLACE (STR|REX)
+// GET LEN OF REPLACED STR
+// APPEND LATTER HALF
+// SET CURSOR TO LOC FIRST
+
+// http://jsfiddle.net/5dxLo60y 
+
 function useSnippets() {
-    for (let key in SNIPPETS) {
-        if (userText.value.trim().substring(userText.value.trim().length - key.length) == key) {
-            userText.value = userText.value.replace(key, SNIPPETS[key]);
-        }
-    }   
-}
-
-// http://jsfiddle.net/o5ay42kr/
-
-var charEntered;
-$('#user-text').keypress(function(e) {
-    keys.unshift(e.which);
-    update();
-});
-
-function update() {
-       $('#last')
-           .prepend($('<li/>').text(String.fromCharCode(keys[0])))
-           .children(':eq(5)').remove();
+    for (let i = 0; i < SNIPPETS.length; i++) {
+        let curr = SNIPPETS[i];
+        userText.value = userText.value.replace(curr["trigger"], curr["replace"]);
+    }
 }
