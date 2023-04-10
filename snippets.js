@@ -11,19 +11,23 @@ const SNIPPETS =
     {"trigger": /(^| )([a-z])(\d)/, "replace": "$1$2_$3"},
 
     //simple operators
+    {"trigger": /=\/|\/=/, "replace": "\\neq"},
     {"trigger": " * ", "replace": " \\cdot "},
     {"trigger": "sr", "replace": "^2"},
     {"trigger": "cb", "replace": "^3"},
     {"trigger": "INV", "replace": "^{-1}"},
 
     //logic and proof
-    {"trigger": /R([n\d])/, "replace": "\\R^$1"},
-    {"trigger": "inn", "replace": "\\in "},
     {"trigger": "===", "replace": "\\equiv"},
+    {"trigger": "inn", "replace": "\\in "},
+
+    //sets  
+    {"trigger": /R([n\d])/, "replace": "\\R^$1"},
 
     //matrix and linear algebra
     {"trigger": "xx", "replace": "\\times"},
     {"trigger": "wperp", "replace": "W^⟂"},
 
-    //other
+    //other notation
+    {"trigger": /fancy([A-Z])/, "replace": "\\mathcal{$1}"},
 ]

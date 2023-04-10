@@ -107,50 +107,36 @@ function updateDisplay() {
             mainDisp.innerHTML += mathDiv.innerHTML;
         } else {
             //otherwise: use showdown for MD
-            var converter = new showdown.Converter({"noHeaderId": true, "literalMidWordUnderscores": true, "ellipsis": false});
+            var converter = new showdown.Converter({"noHeaderId": true, "literalMidWordUnderscores": true, "ellipsis": false, "ghCodeBlocks": false});
             var html = converter.makeHtml(curr);
+
             //generate html inside sectionElt
             var tempElt = document.createElement("div");
             tempElt.innerHTML = html;
             var sectionElt = tempElt.firstChild;
             html = sectionElt.innerHTML;
-
-            //split on the dollars signs if they are in pairs (affirmed math)
-            var mathSplits = html.split(/\$/gm);
-            var inlinesClosed = mathSplits.length % 2 != 0;
             
-            //if all $ have matching pair
-            if (inlinesClosed) {
-                var newHTML = '';
-                //for each subgroup, alternating math and non math
-                for (let j = 0; j < mathSplits.length; j++) {
-                    subCurr = mathSplits[j];
+            //Go through each token
+            tokens = html.split(" ");
+            var newHTML = '';
 
-                    if (j % 2 != 0) {
-                        //if in a math inline, trim and render
+            for (let k = 0; k < tokens.length; k++) {
+                currToken = tokens[k];
+                //Look for math tokens that match the following special characters / format
+                //                    $   =\+^_   ...        single variables
+                if (currToken.match(/\$|[=\\+^_]|\.\.\.|(?<=^| )[b-zB-Z](?=\W|$)/)) {
+                    if (currToken.length != 1 || k != tokens.length - 1) {
+                        //remove affirmative characters ($) if any
+                        currToken = currToken.replace("$", "");
+                        //render the token
                         const mathSpan = document.createElement("span");
-                        katex.render(subCurr.trim(), mathSpan, { throwOnError: false });
-                        subCurr = mathSpan.innerHTML;
-                    } else {
-                        //otherwise, look for math tokens
-                        tokens = subCurr.split(" ");
-                        subCurr = ""
-
-                        for (let k = 0; k < tokens.length; k++) {
-                            currToken = tokens[k];
-                            //render tokens that match the following regex
-                            if (currToken.match(/[\=\\\+\^\_]|\.\.\./)) {                            //find these special characters in each token
-                                const mathSpan = document.createElement("span");
-                                katex.render(currToken, mathSpan, { throwOnError: false });
-                                tokens[k] = mathSpan.innerHTML;
-                            }
-                            subCurr += tokens[k] + " ";
-                        }
+                        katex.render(currToken, mathSpan, { throwOnError: false });
+                        currToken = mathSpan.innerHTML;
                     }
-                    newHTML += subCurr;
                 }
-                sectionElt.innerHTML = newHTML;
+                newHTML += currToken + " ";
             }
+            sectionElt.innerHTML = newHTML;
             mainDisp.appendChild(sectionElt);
         }
     }
