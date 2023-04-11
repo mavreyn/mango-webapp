@@ -5,8 +5,8 @@ Putting the js in a separate file
 
 const MATH_THRESHOLD = 0.5; //0 = false 1 = true
 
-const userText = document.getElementById("user-text");
-const mainDisp = document.getElementById("render-display");
+const userTextElt = document.getElementById("user-text");
+const mainDispElt = document.getElementById("render-display");
 
 var textBlocks = [];
 
@@ -17,10 +17,10 @@ var currentChar = "";
 var charEntered = "";
 var currentSelection = "";
 
-//set text area to pull from local storage
-userText.value = localStorage.getItem('userText');
+//set text area to pull from local storage on load
+userTextElt.value = localStorage.getItem('userText');
 
-//---------------------------------------------------------------------//
+//------------------------------------------------------------------------------------//
 
 function sigmoid(z) {
     const SENSITIVITY = 0.2;
@@ -58,99 +58,104 @@ function isMathBlock(block) {
 
 //MAIN UPDATE
 function mainUpdate() {
-    //split text into blocks for decomposition
-    textBlocks = userText.value.trim().split(/\n{2,}/gm);
+    var inputTxt = userTextElt.value
 
-    //render the text, and update the debug box
-    useSnippets();
+    //set the text area to local storage
+    localStorage.setItem('userText', inputTxt);
+    
+    //apply snippets on hidden layer
+    //then split into blocks for decomposition
+    textBlocks = useSnippets(inputTxt).trim().split(/\n{2,}/gm);
+
     updateDisplay();
     updateCursorInfo();
     updateDebugBox();
-
-    //set the local storage after render is complete
-    localStorage.setItem('userText', userText.value);
 }
 
 
 //updates the main display
 function updateDisplay() {
-    mainDisp.innerHTML = "";
+    mainDispElt.innerHTML = "";
     
     for (let i = 0; i < textBlocks.length; i++) {
-        curr = textBlocks[i];
+        let curr = textBlocks[i];
 
         //if math: render with KaTeX
         if (isMathBlock(curr)) {
-            const mathDiv = document.createElement("div");
-            //add \\ to end of lines without \\
-            if (useMathNewlines) { curr = curr.replace(/(?<!\\\\)\n/gm, " \\\\\n"); }
-            //align sections with =
-            if (autoAlignEquals && curr.match(/\=.+\n.*\=/gm)) {
-                curr = "\\begin{align*} " + curr + " \\end{align*}";
-                curr = curr.replace(/\=/gm, "&=");
-            }
-            //create column vectors from easy syntax
-            if (columnVecSyntax && curr.match(/\[.*\]/gm)) {
-                function colVecToMatrix(match) {
-                    match = match.replaceAll(" ", "\\\\");                                                      // turn spaces into \\
-                    match = match.replaceAll("...", "\\vdots")                                                  // turn ellipses vertical
-                    match = match.replace(/\[/gm, "\\begin{bmatrix}").replace(/\]/gm, "\\end{bmatrix}");        //begin and end to column vector
-                    return match;
-                }
-                curr = curr.replaceAll(/\[.*?\]/gm, colVecToMatrix);
-            }
-
-            katex.render(curr, mathDiv, {
-                displayMode: true,
-                throwOnError: false
-            });
-            mainDisp.innerHTML += mathDiv.innerHTML;
+            mainDispElt.innerHTML += generateMathBlockHTML(curr);
         } else {
-            //otherwise: use showdown for MD
-            var converter = new showdown.Converter({"noHeaderId": true, "literalMidWordUnderscores": true, "ellipsis": false, "ghCodeBlocks": false});
-            var html = converter.makeHtml(curr);
-
-            //generate html inside sectionElt
-            var tempElt = document.createElement("div");
-            tempElt.innerHTML = html;
-            var sectionElt = tempElt.firstChild;
-            html = sectionElt.innerHTML;
-            
-            //Go through each token
-            tokens = html.split(" ");
+            //go through each token
+            tokens = curr.split(" ")
             var newHTML = '';
-
             for (let k = 0; k < tokens.length; k++) {
-                currToken = tokens[k];
+                let currToken = tokens[k];
                 //Look for math tokens that match the following special characters / format
-                //                    $   =\+^_   ...        single variables
-                if (currToken.match(/\$|[=\\+^_]|\.\.\.|(?<=^| )[b-zB-Z](?=\W|$)/)) {
+                //                    `    =\+^_   ...        single variables
+                if (currToken.match(/\`|[=\\+^_]|\.\.\.|(?<=^| )[b-zB-Z](?=\W|$)/)) {
                     if (currToken.length != 1 || k != tokens.length - 1) {
                         //remove affirmative characters ($) if any
-                        currToken = currToken.replace("$", "");
-                        //render the token
-                        const mathSpan = document.createElement("span");
-                        katex.render(currToken, mathSpan, { throwOnError: false });
+                        currToken = currToken.replace("`", "");
+                        //render the token using KaTeX
+                        let mathSpan = document.createElement("span");
+                        katex.render(currToken, mathSpan, { throwOnError: false, output: "html"});
                         currToken = mathSpan.innerHTML;
                     }
                 }
                 newHTML += currToken + " ";
             }
-            sectionElt.innerHTML = newHTML;
-            mainDisp.appendChild(sectionElt);
+            //render the rest using showdown
+            let converter = new showdown.Converter({
+                "noHeaderId": true,
+                "literalMidWordUnderscores": true,
+                "ellipsis": false,
+                "ghCodeBlocks": false
+            });
+            mainDispElt.innerHTML += converter.makeHtml(newHTML);
         }
     }
 }
 
 
+//given raw text, will return the HTML to present to the user
+//manipulations specific to block math occur here
+function generateMathBlockHTML(txt) {
+    let mathDiv = document.createElement("div");
+    //add \\ to end of lines without \\
+    if (useMathNewlines) { txt = txt.replace(/(?<!\\\\)\n/gm, " \\\\\n"); }
+    //align sections with =
+    if (autoAlignEquals && txt.match(/\=.+\n.*\=/gm)) {
+        txt = "\\begin{align*} " + txt + " \\end{align*}";
+        txt = txt.replace(/\=/gm, "&=");
+    }
+    //create column vectors from easy syntax
+    if (columnVecSyntax && txt.match(/\[.*\]/gm)) {
+        function colVecToMatrix(match) {
+            match = match.replaceAll(" ", "\\\\");                                                      // turn spaces into \\
+            match = match.replaceAll("\\dots", "\\vdots")                                               // turn ellipses vertical
+            match = match.replace(/\[/gm, "\\begin{bmatrix}").replace(/\]/gm, "\\end{bmatrix}");        //begin and end to column vector
+            return match;
+        }
+        txt = txt.replaceAll(/\[.*?\]/gm, colVecToMatrix);
+    }
+    //render with KaTeX and return the result
+    katex.render(txt, mathDiv, {
+        displayMode: true,
+        throwOnError: false,
+        output: "html"
+    });
+    return mathDiv.innerHTML;
+}
+
+
 //cursor locations, selection, and section
 function updateCursorInfo() {
-    cursorStart = userText.selectionStart;
-    cursorEnd = userText.selectionEnd;
-    currentChar = userText.value[cursorStart - 1];
-    cursorBlock = userText.value.substring(0, cursorEnd).split(/\n{2,}/gm).length - 1;
-    currentSelection = userText.value.substring(cursorStart, cursorEnd);
+    cursorStart = userTextElt.selectionStart;
+    cursorEnd = userTextElt.selectionEnd;
+    currentChar = userTextElt.value[cursorStart - 1];
+    cursorBlock = userTextElt.value.substring(0, cursorEnd).split(/\n{2,}/gm).length - 1;
+    currentSelection = userTextElt.value.substring(cursorStart, cursorEnd);
 }
+
 
 //get the last character entered
 function getLastChar(event) {
@@ -171,20 +176,12 @@ function updateDebugBox() {
 }
 
 
-// REFORMAT JSON TO PROPER
-// SPLIT ON CURSOR
-// STORE CURSOR POS
-// IF MATCH
-// REPLACE (STR|REX)
-// GET LEN OF REPLACED STR
-// APPEND LATTER HALF
-// SET CURSOR TO LOC FIRST
-
-// http://jsfiddle.net/5dxLo60y 
-
-function useSnippets() {
+//make substitutions according to snippets
+function useSnippets(txt) {
+    let txtSnippets = txt;
     for (let i = 0; i < SNIPPETS.length; i++) {
         let curr = SNIPPETS[i];
-        userText.value = userText.value.replace(curr["trigger"], curr["replace"]);
+        txtSnippets = txtSnippets.replaceAll(curr["trigger"], curr["replace"]);
     }
+    return txtSnippets;
 }
