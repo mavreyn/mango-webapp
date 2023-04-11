@@ -5,28 +5,28 @@ Lookin pretty sweet
 - xvc yhat
 reformat snippets json
 Snippets implemented, regex!
-a1, b5
-=/ or /=
+=/ or /=	
 Back end improvements for $$ for inline
 - Now include $ with a token to render that token as math if not autodetected
+HTML after rendering math, use ` to command inline rendering
+Variables with subscripts
+Snippets to back end!
 ===========================================
 TODO in order:
 
-an, en (somehow)
-fraction
-MATH_THRESHOLD TO SETTINGS
-expand parenthesis (in back)
-- setting for this
 useSnippets setting
-Try html after rendering, so I can use `
 save settings to local storage
-Snippets to back end?
+Snippets to back end setting
+Put inline rendering into function as well
 
 Give credit to showdown and KaTeX
 
 ===========================================
 NEXT:
 
+MATH_THRESHOLD TO SETTINGS
+tab does matching parenthesis fill
+fraction (single numbers simple)
 Rebuild in Reactjs
 Info button on top
 - What is it
@@ -52,12 +52,12 @@ Settings
 - TeX modifiers:
 	Auto identify
 	- MATH_THRESHOLD ADJ
-- Align equal signs
 - Lines under headers
 - Color Schemes changer
 Show example texts
 Override for false positives in text
 cursorDepth (huge undertaking)
+Only rerender current block
 rank( = plain text [[ span{ also ]]
 HTML to pic (export)
 Change tab behavior to work
