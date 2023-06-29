@@ -37,3 +37,8 @@
 - Scroll sync between user input and render output containers
 - Debug box will show cursor position, math value of current block, and other information
 
+# 2.0 Jun 20, 2023
+
+- Complete style revamp
+- Restarted snippets
+

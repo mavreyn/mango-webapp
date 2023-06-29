@@ -31,7 +31,9 @@ At the moment, the current version of Mango can be accessed by navigating to thi
 
 ## Why I Created Mango
 
-I have given other sites and programs (such as Stackedit and Obsidian) a try. However, there were certain behavior that I wanted in an editor that they did not have. In addition, I believed I was ready and up for the challenge, since the front-end would be rather simple and I knwe there would be plenty of regex involved, which I was quite fluent in at the time.
+I have given other sites and programs (such as Stackedit and Obsidian) a try. However, there were certain behavior that I wanted in an editor that they did not have. In addition, I believed I was ready and up for the challenge, since the front-end would be rather simple and I knew there would be plenty of regex involved, which I was quite fluent in at the time.
+
+More importantly, I wanted a piece of software that would allow me to type math real time. As fast as humanly possible while using as little keystrokes as possible and rendering with nice formatting.
 
 ## Contributions
 

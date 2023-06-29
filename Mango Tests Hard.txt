@@ -1,0 +1,54 @@
+# Gaussian integrals
+
+We are going to be talking today about gaussian integrals over a 2D domain fancyD
+
+It is also known as the euler-poisson integral and there are a few cool representations of it. One of which is the following:
+
+Isubnofa === int 0 inf of exp -axsr xpown dx
+
+Here's anotehr cool one
+
+int INF exp-xsr dx = rtpi
+
+And this
+
+I2of@a = int 0 +inf xsr exp-@axsr dx = 1/4 rt pi/@acb
+
+fx = int 0 x of f't dt
+
+f'3 = lim h to 0 (3+h)sr-3sr/h
+=lim h to 0 9+6h+hsr-9/h
+=lim h to 0 6h+hsr/h
+=lim h to 0 (6+h)
+=6
+
+d/dx sin-1x = 1/rt1-xsr , x =! +- 1
+
+d/dx csc-1x = -1/|x|rtxsr-1 , x != +- 1,0
+
+int xpown expcx dx = 1/c xpown expcx - n/c int xpown-1 expcx dx
+=(del/delc)pown expcx/c
+=epowcx sum i=0 n (-1)powi n!/(n-i)!cpowi+1 xpown-i
+=epowcx sum i=0 n (-1)pown-i n!/i!cpown-i+1 xpowi
+
+int 1/1+sinx dx = int 1-sinx/cossrx dx
+=int 1/cossrx - sinx/cosx 1/cosx dx
+=int secsrx - tanx secx dx
+= tanx - secx + C
+
+int xsinxdx = -xcosx - int -cosx dx
+= -xcosx+sinx+C
+
+int from pi/3 to pi/2 of xsinx dx = [-xcosx+sinx]EVAL pi/3 pi/2
+=[(-pi/2)(cos pi/2) + sin pi/2]-[(-pi/3)(cos pi/3) + sin pi/3]
+=(0+1)-(-pi/6 + rt3/2)
+=1+pi/6 - rt3/2
+=6-3rt3+pi/6
+
+# And that's all she wrote!
+=========================================
+int xsrdx = xcb/3 +C
+
+int 0 1 of x = xsr/2
+
+int INF exp-xsr dx = pisr/6

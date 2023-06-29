@@ -1,69 +1,85 @@
-#body {
-    background-color: #555;
+/* Main stylesheet for Mango */
+
+/* Global styles */
+* {
+    box-sizing: border-box;
     margin: 0px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    padding: 0px;
 }
 
-.header {
+body {
+    background-image: linear-gradient(
+        135deg,
+        #20d3fe,
+        #588afd,
+        #8e25e9
+    );
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100svh;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+::-webkit-scrollbar-thumb {
+    background: none;
+    border-radius: 5px;
+}
+
+
+/* ====================== HEADER ====================== */
+
+header {
     display: flex;
     justify-content: space-between;
-    height: 35px;
-    padding: 2px;
-    background-color: #660000;
-    box-sizing: border-box;
 }
-.title {
-    color: #FFDE66;
-    margin-left: 3px;
-    float: left;
-    font-weight: bold;
-    font-size: large;
-    align-self: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+header div {
+    width: 62px
 }
-.icon-display {
-    display: flex;
-    flex-direction: row-reverse;
-    float: right;
+header h1 {
+    color: white;
+    text-align: center;
+    font-size: 42px;
+    height: 62px;
 }
-.header-icons {
-    color: #777;
+#settings-button {
+    color: white;
     background-color: inherit;
+    border: none;
     cursor: pointer;
-    border: none;
     transition: 0.2s;
-    border: none;
+    margin: 15px;
+    font-size: 24px;
 }
-.header-icons:hover {
+
+/* animated effects */
+#settings-button:hover {
     transform: rotate(30deg);
     color: #bbb;
 }
-.header-icons:focus {
-    outline: none
-}
 
-#main-display {
+/* ====================== MAIN DISPLAY ====================== */
+
+/* input block */
+main {
     display: flex;
-    width: 100%;
-    height: calc(100% - 35px);
-    background-color: inherit;
-    padding: 0px;
+    justify-content: space-evenly;
+    height: calc(100svh - 62px);
+}
+main section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .user-text-block {
-    width: 50%;
-    background-color: #222;
-    padding: 6px
-}
-.user-text-wrapper {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    width: 48%;
+    padding-bottom: 1%;
+    overflow: hidden;
 }
 #user-text {
     background-color: black;
@@ -71,38 +87,47 @@
     height: 100%;
     color: white;
     font-family: 'Consolas', Courier, monospace;
-    font-size: smaller;
-    padding: 4px;
+    font-size: 1rem;
+    padding: 10px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 15px;
+    border-width: 2px;
     resize: none;
+    overflow: auto;
 }
 #user-text:hover {
     cursor: text;
 }
-
-.render-block {
-    width: 50%;
-    background-color: #333;
-    padding: 6px;
+#user-text:focus {
+    outline: none;
+    border-color: white;
 }
-#render-wrapper {
+
+/* render block */
+.render-block {
+    width: 48%;
+    padding-bottom: 1%;
+}
+.render-wrapper {
     width: 100%;
     height: 100%;
-    background-color: white;
-    border-radius: 5px;
-    overflow-y: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: #888;
 }
 #render-display {
-    background-color: none;
-    color: black;
-    font-size: smaller;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    color: #111;
     padding: 4px;
-    box-sizing: border-box;
+    font-size: 1.1rem;
 }
 .scroll-placeholder {
     height: 180px;
-    overflow-y: auto;
 }
 
 
@@ -112,11 +137,11 @@
     position: absolute;
     color: red;
     background-color: #ccc;
-    margin: 1.5%;
+    margin: 3%;
     opacity: 0.96;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 2px;
-    display: none;
+    padding: 2px
 }
 
 

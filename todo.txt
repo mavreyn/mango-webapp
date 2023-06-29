@@ -1,44 +1,45 @@
 03.15.2023
 Lookin pretty sweet
 
-===========================================
-- xvc yhat
-reformat snippets json
-Snippets implemented, regex!
-=/ or /=	
-Back end improvements for $$ for inline
-- Now include $ with a token to render that token as math if not autodetected
-HTML after rendering math, use ` to command inline rendering
-Variables with subscripts
-Snippets to back end!
+Settings Menu:
+- Single scrollable
+- Nice & tall
+
+True event listeners
 ===========================================
 TODO in order:
 
 useSnippets setting
+Config file w/ all preferences
 save settings to local storage
 Snippets to back end setting
-Put inline rendering into function as well
+Make renderInlineMath()
 
-Give credit to showdown and KaTeX
+CRITICAL: rerender only current block
+reload all button
+scrolltop
 
+Special key for priority for operators
+Scroll spacer div
+
+Load example texts
+
+Try to type some math notes
 ===========================================
+
 NEXT:
 
 MATH_THRESHOLD TO SETTINGS
-tab does matching parenthesis fill
-fraction (single numbers simple)
-Rebuild in Reactjs
 Info button on top
 - What is it
 - Why I made
 - How to use
 - Changelog
 - Github
-Config file
-Custom checkbox design
 Toggle scroll sync (setting)
 ht px depends on trailing \n's
 Line numbers, alt shortcut to move up/down, altx remove line
+Custom checkbox design
 Color change for render (options for each)
 - Black on white
 - White on black
@@ -55,6 +56,9 @@ Settings
 - Lines under headers
 - Color Schemes changer
 Show example texts
+flags
+- NOALIGN
+- GRAPH
 Override for false positives in text
 cursorDepth (huge undertaking)
 Only rerender current block
@@ -62,12 +66,8 @@ rank( = plain text [[ span{ also ]]
 HTML to pic (export)
 Change tab behavior to work
 Feedback box / contact
-BuyMeACoffee / Cashapp w/ Names list / paypal
 CursorInMath
-User shortcuts within document (remembered tokens)
 Desmos integration
 
 Custom domain
-maverickreynolds.com
-
 Mathematics Notation Generator Online

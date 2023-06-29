@@ -1,0 +1,57 @@
+# General Inner Products (6.7)
+
+04.11.2023
+
+Want to generalize dot product with other inner products
+
+Let V be a vector space. An iner product on V is a function (\cdot,\cdot): V xx V -> \R satistying:
+
+(u,v) = (v,u)
+(u+v, w) = (u,w)+(v,w)
+
+(u,u) \geq 0, (u,u) = 0
+u=0vc
+
+Positive definiteness
+
+## Dot product
+
+V=Rn
+
+
+u * v = a_1 b_1 +... a_n b_n
+
+u=[a_1 ... a_n] v = [b_1 ... b_n]
+
+### Weighted Dot Product
+
+Let
+
+w1 ... wn inn \R
+w_i \gt 0
+
+u = [a1 ... an] v=[v1 ... vn]
+
+(u,v) = w1 a1 b1 + w2 a2 b2 + ... wn an bn
+
+Basically what it sounds like, a weighted dot product in different directions. Weights stored as simply positive real weights attached to the product
+
+# Evaluation Inner Product
+
+Let V = P_n(\R) polynomials of at most degree n.
+
+Let a0 ... an be distinct real numbers. Product are polynomials
+
+(p,q) = p(a0)q(a0) + p(a1)+q(a1)+... p(an)q(an)
+
+Like a dot product, but on the outputted values from the polynomials.
+
+- Communitivity
+- Homogeneity
+
+(p,p) = p(a0)p(a0) + ... + p(an)p(an)
+=p(a0)sr + ... + p(an)sr
+
+p(a0)=p(a1)=...=p(an)=0
+
+Thus, p is a polynomial of degree \lt n having n+1 roots. Thus p=0

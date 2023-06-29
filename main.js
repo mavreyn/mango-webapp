@@ -91,13 +91,13 @@ function updateDisplay() {
                 let currToken = tokens[k];
                 //Look for math tokens that match the following special characters / format
                 //                    `    =\+^_   ...        single variables
-                if (currToken.match(/\`|[=\\+^_]|\.\.\.|(?<=^| )[b-zB-Z](?=\W|$)/)) {
+                if (currToken.match(/\`|[=\\+^_<>]|\.\.\.|(?<=^| )[b-zB-Z](?=\W|$)/)) {
                     if (currToken.length != 1 || k != tokens.length - 1) {
                         //remove affirmative characters ($) if any
                         currToken = currToken.replace("`", "");
                         //render the token using KaTeX
                         let mathSpan = document.createElement("span");
-                        katex.render(currToken, mathSpan, { throwOnError: false, output: "html"});
+                        katex.render(currToken, mathSpan, { throwOnError: false, output: "html", minRuleThickness: 0.05});
                         currToken = mathSpan.innerHTML;
                     }
                 }
@@ -120,13 +120,13 @@ function updateDisplay() {
 //manipulations specific to block math occur here
 function generateMathBlockHTML(txt) {
     let mathDiv = document.createElement("div");
-    //add \\ to end of lines without \\
+
     if (useMathNewlines) { txt = txt.replace(/(?<!\\\\)\n/gm, " \\\\\n"); }
-    //align sections with =
     if (autoAlignEquals && txt.match(/\=.+\n.*\=/gm)) {
         txt = "\\begin{align*} " + txt + " \\end{align*}";
         txt = txt.replace(/\=/gm, "&=");
     }
+    
     //create column vectors from easy syntax
     if (columnVecSyntax && txt.match(/\[.*\]/gm)) {
         function colVecToMatrix(match) {
@@ -141,7 +141,8 @@ function generateMathBlockHTML(txt) {
     katex.render(txt, mathDiv, {
         displayMode: true,
         throwOnError: false,
-        output: "html"
+        output: "html",
+        minRuleThickness: 0.05
     });
     return mathDiv.innerHTML;
 }
