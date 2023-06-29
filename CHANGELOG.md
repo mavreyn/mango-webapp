@@ -8,7 +8,7 @@
 
 #### 1.3.1 April 10, 2023
 
-- Any token containing `\`` will be rendered as a math expression if it is not autodetected as math. This is Mango's affirmative character
+- Any token containing a backtick will be rendered as a math expression if it is not autodetected as math. This is Mango's affirmative character
 
 ### 1.3.0 April 9, 2023
 
